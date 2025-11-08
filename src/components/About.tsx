@@ -16,10 +16,11 @@ const About = () => {
           </h2>
           <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 md:p-12 gradient-border">
             <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
-              אני מאמין שאוטומציה לא נועדה להחליף אנשים – היא נועדה לשחרר אותם ממה שלא דורש אנושיות.
-              בעשור האחרון אני מלווה עסקים ואנשים בבנייה של מערכות חכמות שמשלבות טכנולוגיה ותובנה אנושית.
-              התמחותי היא בפיתוח פתרונות אוטומציה מתקדמים המשלבים AI, אינטגרציות מורכבות, וחשיבה מערכתית
-              כדי להביא לתוצאות מדידות ומשמעותיות.
+              מהנדס QA Automation עם למעלה מ-10 שנות ניסיון, מתמחה כיום בבדיקות מונחות AI ואוטומציה חכמה.
+              מומחה ב-Playwright, TypeScript, Selenium, ו-CI/CD. מוביל חדשנות בתחום Vision AI UI Validation,
+              AI Agents וצ'אט בוטים, ומניע את עתיד האוטומציה עם פתרונות AI מדרגיים בעולם האמיתי.
+              בעל ניסיון מעשי עם Cursor IDE (custom rules), אוטומציות n8n, Supabase/Pinecone עבור זיכרון AI,
+              ואינטגרציות Slack/WhatsApp, ומספק מערכות מקצה לקצה חדשניות.
             </p>
           </div>
         </motion.div>

@@ -10,7 +10,7 @@ const socialLinks = [
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:contact@ramqa.dev",
+    href: "mailto:ramqaveles@gmail.com",
     color: "text-primary",
   },
   {
@@ -22,7 +22,7 @@ const socialLinks = [
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/ramqa",
+    href: "https://github.com/RamWalastal",
     color: "text-foreground",
   },
   {

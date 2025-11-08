@@ -3,29 +3,29 @@ import { Lightbulb, Settings, Bot, Compass, Rocket } from "lucide-react";
 
 const offerings = [
   {
-    icon: Lightbulb,
-    title: "חשיבה מערכתית",
-    description: "יכולת לזהות דפוסים ולראות את התמונה הגדולה",
+    icon: Bot,
+    title: "AI Agents מותאמים אישית",
+    description: "פיתוח סוכני AI חכמים עם n8n, OpenAI APIs ו-Webhooks לאוטומציה חכמה",
   },
   {
     icon: Settings,
-    title: "פיתוח אוטומציות",
-    description: "בניית מערכות חכמות עם אינטגרציות מתקדמות",
+    title: "אוטומציה חכמה בקנה מידה",
+    description: "מערכות אוטומציה מלאות עם Playwright, TypeScript ו-CI/CD",
   },
   {
-    icon: Bot,
-    title: "שילוב AI",
-    description: "הטמעת בינה מלאכותית במערכות עבודה אמיתיות",
+    icon: Lightbulb,
+    title: "Vision AI UI Validation",
+    description: "שימוש חלוצי ב-GPT-4 Vision עם MCP Playwright לבדיקות ויזואליות מונחות AI",
   },
   {
     icon: Compass,
-    title: "ליווי והדרכה",
-    description: "הנחיה טכנולוגית והעצמה של צוותים",
+    title: "No-Code AI Empowerment",
+    description: "מתן כוח לצוותים ללא רקע טכני להשתמש ב-AI דרך פקודות שפה טבעית",
   },
   {
     icon: Rocket,
-    title: "תכנון צמיחה",
-    description: "בניית תהליכים דיגיטליים להאצת עסקים",
+    title: "Enterprise AI Integration",
+    description: "חיבור AI Agents למערכות ארגוניות כמו Azure DevOps לאוטומציה מלאה",
   },
 ];
 

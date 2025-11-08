@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Code, Cpu, Link2, Database, Sparkles, Layout } from "lucide-react";
 
 const skills = [
-  { name: "Python & Node.js", icon: Code, level: 95 },
-  { name: "n8n, Make, Zapier", icon: Cpu, level: 90 },
-  { name: "GPT Automation", icon: Sparkles, level: 92 },
-  { name: "API Integration", icon: Link2, level: 88 },
-  { name: "Data Pipelines", icon: Database, level: 85 },
-  { name: "UX for Automation", icon: Layout, level: 87 },
+  { name: "Playwright & TypeScript", icon: Code, level: 95 },
+  { name: "AI & LLM Integration", icon: Sparkles, level: 92 },
+  { name: "n8n & Automation Platforms", icon: Cpu, level: 90 },
+  { name: "Python & Node.js", icon: Code, level: 88 },
+  { name: "CI/CD & Jenkins", icon: Database, level: 87 },
+  { name: "Vision AI & GPT-4", icon: Sparkles, level: 93 },
 ];
 
 const Expertise = () => {

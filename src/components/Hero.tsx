@@ -48,10 +48,10 @@ const Hero = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-4 gradient-text">
-                Ramqa
+                Ram Walastal
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground">
-                Automation Developer & AI Mentor
+                LLM Integration Engineer & AI Automation Specialist
               </h2>
             </motion.div>
 
@@ -61,8 +61,8 @@ const Hero = () => {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="text-lg md:text-xl text-foreground/90 mb-8 leading-relaxed"
             >
-              מפתח אוטומציות עם תשוקה לשילוב AI בכל היבט של תהליכי עבודה.
-              אוהב להפוך בעיות למכונות שעובדות בשבילך.
+              מהנדס QA Automation עם למעלה מ-10 שנות ניסיון, מתמחה בבדיקות מונחות AI ואוטומציה חכמה. 
+              מוביל פיתוח של פתרונות AI חדשניים ומערכות אוטומציה מקצה לקצה עם שילוב כלים כמו Playwright, n8n, GPT-4 Vision ו-MCP.
             </motion.p>
 
             <motion.div
@@ -110,7 +110,7 @@ const Hero = () => {
               />
               <img
                 src={heroImage}
-                alt="Ramqa - Automation Developer"
+                alt="Ram Walastal - LLM Integration Engineer"
                 className="relative rounded-3xl w-full max-w-md mx-auto shadow-2xl border-2 border-primary/20"
               />
             </div>

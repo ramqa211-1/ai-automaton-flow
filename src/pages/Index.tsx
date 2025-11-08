@@ -26,7 +26,7 @@ const Index = () => {
       <footer className="py-8 px-4 border-t border-border/50">
         <div className="container mx-auto text-center">
           <p className="text-muted-foreground">
-            © 2025 Ramqa. All rights reserved.
+            © 2025 Ram Walastal. All rights reserved.
           </p>
         </div>
       </footer>
