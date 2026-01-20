@@ -47,11 +47,11 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <h1 className="text-5xl md:text-7xl font-bold mb-4 gradient-text">
-                Ram Walastal
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 gradient-text leading-tight">
+                הופך טכנולוגיה מורכבת לפתרונות חכמים
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground">
-                LLM Integration Engineer & AI Automation Specialist
+                פיתוח, אוטומציה והדרכת AI
               </h2>
             </motion.div>
 
@@ -61,8 +61,7 @@ const Hero = () => {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="text-lg md:text-xl text-foreground/90 mb-8 leading-relaxed"
             >
-              מהנדס QA Automation עם למעלה מ-10 שנות ניסיון, מתמחה בבדיקות מונחות AI ואוטומציה חכמה. 
-              מוביל פיתוח של פתרונות AI חדשניים ומערכות אוטומציה מקצה לקצה עם שילוב כלים כמו Playwright, n8n, GPT-4 Vision ו-MCP.
+              משלבים עוצמה של סוכני AI עם מהירות פיתוח מודרנית כדי לבנות את מה שחשוב באמת.
             </motion.p>
 
             <motion.div
