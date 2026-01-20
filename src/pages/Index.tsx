@@ -1,5 +1,9 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Services from "@/components/Services";
+import Training from "@/components/Training";
+import TechStack from "@/components/TechStack";
+import CTA from "@/components/CTA";
 import WhatIBring from "@/components/WhatIBring";
 import Expertise from "@/components/Expertise";
 import Capabilities from "@/components/Capabilities";
@@ -16,10 +20,14 @@ const Index = () => {
 
       <Hero />
       <About />
+      <Services />
+      <Training />
+      <TechStack />
       <WhatIBring />
       <Expertise />
       <Capabilities />
       <Portfolio />
+      <CTA />
       <Contact />
 
       {/* Footer */}
