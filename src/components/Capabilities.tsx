@@ -1,24 +1,23 @@
 import { motion } from "framer-motion";
-import { Network, Briefcase, Users, Zap } from "lucide-react";
 
 const capabilities = [
   {
-    icon: Network,
+    image: "/src/assets/data.png",
     title: "ניתוח מערכות ותהליכים",
     description: "הבנה עמוקה של תהליכים עסקיים ומציאת נקודות ייעול",
   },
   {
-    icon: Briefcase,
+    image: "/src/assets/projects.png",
     title: "ניהול פרויקטים טכנולוגיים",
     description: "הובלת פרויקטים מורכבים מהרעיון ועד המימוש",
   },
   {
-    icon: Users,
+    image: "/src/assets/mmtor.png",
     title: "הנחיה והדרכה",
     description: "העברת ידע והעצמה של אנשים וצוותים",
   },
   {
-    icon: Zap,
+    image: "/src/assets/innovation.png",
     title: "חדשנות ופתרון בעיות",
     description: "גישה יצירתית למציאת פתרונות טכנולוגיים מתקדמים",
   },
@@ -49,13 +48,18 @@ const Capabilities = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-card/30 backdrop-blur-sm border border-border rounded-xl p-8 hover:border-secondary/50 transition-all duration-300"
+              className="bg-card/30 backdrop-blur-sm border border-border rounded-xl p-8 hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="p-4 bg-secondary/10 rounded-full glow-secondary">
-                  <item.icon className="w-10 h-10 text-secondary" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex flex-col items-center text-center gap-4 relative z-10">
+                <div className="p-2 bg-background/50 rounded-2xl border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-24 h-24 object-contain neon-pulse"
+                  />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">
+                <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">

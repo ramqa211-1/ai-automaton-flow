@@ -104,8 +104,8 @@ const Portfolio = () => {
                   size="sm"
                   className="w-full justify-between hover:bg-primary/10 hover:text-primary"
                 >
-                  <span>פרטים נוספים</span>
-                  <ExternalLink className="w-4 h-4" />
+                  <span></span>
+                  {/* <ExternalLink className="w-4 h-4" /> */}
                 </Button>
               </div>
             </motion.div>

@@ -21,13 +21,13 @@ const About = () => {
             <p className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6">
               מהנדס QA Automation עם למעלה מ-10 שנות ניסיון, מתמחה כיום בבדיקות מונחות AI ואוטומציה חכמה.
               מומחה ב-Playwright, TypeScript, Selenium, ו-CI/CD. מוביל חדשנות בתחום Vision AI UI Validation,
-              AI Agents וצ'אט בוטים, ומניע את עתיד האוטומציה עם פתרונות AI מדרגיים בעולם האמיתי.
+              AI Agents וצ'אט בוטים, ומניע את עתיד האוטומציה עם פתרונות AI בעולם האמיתי.
               בעל ניסיון מעשי עם Cursor IDE (custom rules), אוטומציות n8n, Supabase/Pinecone עבור זיכרון AI,
               ואינטגרציות Slack/WhatsApp, ומספק מערכות מקצה לקצה חדשניות.
             </p>
             <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
-              בין אם זה לבנות אפליקציה מורכבת ב-Loveable, לכתוב קוד מדויק ב-Cursor או להקים מערך סוכנים ב-n8n, 
-              המטרה שלי היא אחת: לקחת את הכלים הכי חזקים שיש היום ולרתום אותם לטובת עסקים, אנשים ומשפחות.
+              "בין אם זה לבנות אפליקציה מורכבת ב-Loveable, לכתוב קוד מדויק ב-Cursor או להקים מערך סוכנים ב-n8n, 
+              המטרה שלי היא אחת: לקחת את הכלים החזקים ביותר שיש היום ולרתום אותם לטובת עסקים, אנשים ומשפחות."
             </p>
           </div>
         </motion.div>

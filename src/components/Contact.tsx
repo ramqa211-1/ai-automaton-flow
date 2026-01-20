@@ -22,13 +22,13 @@ const socialLinks = [
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/RamWalastal",
+    href: "https://github.com/ramqa211-1?tab=repositories",
     color: "text-foreground",
   },
   {
     icon: LinkIcon,
     label: "Linktree",
-    href: "#",
+    href: "https://linktr.ee/ram7walas",
     color: "text-accent",
   },
 ];
@@ -136,9 +136,10 @@ const Contact = () => {
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground glow-primary transition-all duration-300"
+              className="relative w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 border-2 border-primary/30 hover:border-primary/60 overflow-hidden group"
             >
-              שלח הודעה
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+              <span className="relative">שלח הודעה</span>
             </Button>
           </form>
         </motion.div>

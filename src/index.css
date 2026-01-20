@@ -8,48 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 40% 4%;
-    --foreground: 210 40% 98%;
+    --background: 210 50% 3%;
+    --foreground: 180 15% 95%;
 
-    --card: 220 30% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 45% 6%;
+    --card-foreground: 180 15% 95%;
 
-    --popover: 220 30% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 45% 6%;
+    --popover-foreground: 180 15% 95%;
 
-    --primary: 190 95% 50%;
-    --primary-foreground: 220 40% 4%;
+    --primary: 145 100% 50%;
+    --primary-foreground: 210 50% 3%;
 
-    --secondary: 270 70% 65%;
-    --secondary-foreground: 220 40% 4%;
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 210 50% 3%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 215 25% 12%;
+    --muted-foreground: 180 10% 60%;
 
-    --accent: 175 80% 55%;
-    --accent-foreground: 220 40% 4%;
+    --accent: 200 100% 45%;
+    --accent-foreground: 210 50% 3%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 180 15% 95%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 18%;
-    --ring: 190 95% 50%;
+    --border: 145 70% 20%;
+    --input: 215 25% 12%;
+    --ring: 145 100% 50%;
 
     --radius: 0.75rem;
 
-    --glow-primary: 190 95% 50%;
-    --glow-secondary: 270 70% 65%;
-    --glow-accent: 175 80% 55%;
+    --glow-primary: 145 100% 50%;
+    --glow-secondary: 30 100% 50%;
+    --glow-accent: 200 100% 45%;
 
-    --sidebar-background: 220 35% 6%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 190 95% 50%;
-    --sidebar-primary-foreground: 220 40% 4%;
-    --sidebar-accent: 220 20% 15%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 20% 18%;
-    --sidebar-ring: 190 95% 50%;
+    --sidebar-background: 215 50% 4%;
+    --sidebar-foreground: 180 15% 95%;
+    --sidebar-primary: 145 100% 50%;
+    --sidebar-primary-foreground: 210 50% 3%;
+    --sidebar-accent: 215 25% 12%;
+    --sidebar-accent-foreground: 180 15% 95%;
+    --sidebar-border: 145 70% 20%;
+    --sidebar-ring: 145 100% 50%;
   }
 }
 
@@ -69,28 +69,67 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glow-text {
-    text-shadow: 0 0 20px hsl(var(--glow-primary) / 0.5);
+    text-shadow: 0 0 20px hsl(var(--glow-primary) / 0.6),
+                 0 0 40px hsl(var(--glow-primary) / 0.3);
   }
 
   .glow-primary {
-    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.4);
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.5),
+                0 0 40px hsl(var(--glow-primary) / 0.3),
+                0 0 60px hsl(var(--glow-primary) / 0.1);
   }
 
   .glow-secondary {
-    box-shadow: 0 0 30px hsl(var(--glow-secondary) / 0.4);
+    box-shadow: 0 0 20px hsl(var(--glow-secondary) / 0.5),
+                0 0 40px hsl(var(--glow-secondary) / 0.3);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)), 
+      hsl(var(--accent)),
+      hsl(var(--secondary)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   .gradient-border {
     position: relative;
     border: 2px solid transparent;
     background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary))) border-box;
+                linear-gradient(135deg, 
+                  hsl(var(--primary)), 
+                  hsl(var(--accent)),
+                  hsl(var(--secondary))) border-box;
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .neon-pulse {
+    animation: neon-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes neon-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 5px hsl(var(--primary) / 0.8))
+              drop-shadow(0 0 15px hsl(var(--primary) / 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 10px hsl(var(--primary) / 1))
+              drop-shadow(0 0 25px hsl(var(--primary) / 0.6));
+    }
   }
 }

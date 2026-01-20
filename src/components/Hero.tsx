@@ -31,6 +31,20 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        {/* Cyber grid lines */}
+        <div className="absolute inset-0 cyber-grid opacity-30" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -72,15 +86,16 @@ const Hero = () => {
             >
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground glow-primary transition-all duration-300"
+                className="relative bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 border-2 border-primary/30 hover:border-primary/60 overflow-hidden group"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                צור קשר
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+                <span className="relative">צור קשר</span>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary transition-all duration-300"
+                className="border-2 border-primary/50 text-primary hover:bg-primary/20 hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 font-bold backdrop-blur-sm"
                 onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 תיק עבודות
