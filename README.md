@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# Ram Walastal - Portfolio Website
 
-## Project info
+🚀 Professional portfolio website showcasing AI automation expertise, projects, and services.
 
-**URL**: https://lovable.dev/projects/ae8b38e3-3b54-409c-a0bc-fb08e99014c7
+## 🌟 Features
 
-## How can I edit this code?
+- ⚡ Modern futuristic design with neon green aesthetics
+- 📱 Fully responsive navigation menu
+- 🎨 Custom animations and effects
+- 🔗 Social media integration
+- 📧 Contact form
+- 💼 Project portfolio showcase
+- 🎯 Service offerings display
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI + Shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Form Handling**: React Hook Form + Zod
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ae8b38e3-3b54-409c-a0bc-fb08e99014c7) and start prompting.
+## 🚀 Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 20+
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clone the repository
+git clone https://github.com/ramqa211-1/ai-automaton-flow.git
 
-Follow these steps:
+# Navigate to project directory
+cd ai-automaton-flow
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Building for Production
 
-**Use GitHub Codespaces**
+```bash
+# Build the project
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview production build
+npm run preview
+```
 
-## What technologies are used for this project?
+## 🌐 Deployment
 
-This project is built with:
+This project is configured for automatic deployment to GitHub Pages:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Push changes to the `main` branch
+2. GitHub Actions will automatically build and deploy
+3. Site will be available at: `https://ramqa211-1.github.io/ai-automaton-flow/`
 
-## How can I deploy this project?
+### Manual Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/ae8b38e3-3b54-409c-a0bc-fb08e99014c7) and click on Share -> Publish.
+```bash
+# Build the project
+npm run deploy
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 📝 License
 
-Yes, you can!
+All rights reserved © 2025 Ram Walastal
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📧 Contact
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Email**: ramqaveles@gmail.com
+- **LinkedIn**: [Ram Walas-Tal](https://www.linkedin.com/in/ram-walas-tal-b1830770)
+- **GitHub**: [@ramqa211-1](https://github.com/ramqa211-1)
+- **Linktree**: [ram7walas](https://linktr.ee/ram7walas)
+- **WhatsApp**: [Chat on WhatsApp](https://wa.me/972548010190)
+
+---
+
+Built with 💚 using cutting-edge AI development tools
