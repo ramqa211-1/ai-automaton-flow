@@ -10,7 +10,7 @@ import Expertise from "@/components/Expertise";
 import Capabilities from "@/components/Capabilities";
 import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
-import VideoSection from "@/components/VideoSection";
+import VideoModal from "@/components/VideoModal";
 
 const Index = () => {
   return (
@@ -20,9 +20,9 @@ const Index = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
       </div>
 
+      <VideoModal />
       <Navbar />
       <Hero />
-      <VideoSection />
       <About />
       <Services />
       <Training />
