@@ -10,6 +10,7 @@ import Expertise from "@/components/Expertise";
 import Capabilities from "@/components/Capabilities";
 import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
+import VideoSection from "@/components/VideoSection";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
 
       <Navbar />
       <Hero />
+      <VideoSection />
       <About />
       <Services />
       <Training />
