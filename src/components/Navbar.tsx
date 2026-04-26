@@ -9,18 +9,15 @@ const navItems = [
   { label: "הדרכות", href: "#training" },
   { label: "תחומי התמחות", href: "#expertise" },
   { label: "תיק עבודות", href: "#portfolio" },
-  { label: "יצירת קשר", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,6 +26,7 @@ const Navbar = () => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setActiveHref(href);
       setIsMobileMenuOpen(false);
     }
   };
@@ -41,53 +39,55 @@ const Navbar = () => {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-lg border-b border-primary/20 shadow-lg shadow-primary/5"
+            ? "bg-background/90 backdrop-blur-md border-b border-white/30 shadow-[0_0_15px_rgba(182,0,89,0.06)]"
             : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold gradient-text cursor-pointer"
+              whileHover={{ scale: 1.03 }}
+              className="text-base font-bold tracking-widest uppercase text-foreground cursor-pointer font-inter"
               onClick={() => scrollToSection("#home")}
             >
               Ram Walastal
             </motion.div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={index}
+            <div className="hidden lg:flex items-center gap-6">
+              {navItems.map((item) => (
+                <button
+                  key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="relative px-4 py-2 text-foreground/80 hover:text-primary transition-colors duration-300 group"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className={`font-inter text-sm tracking-tight transition-colors duration-200 pb-0.5 ${
+                    activeHref === item.href
+                      ? "text-primary font-semibold border-b-2 border-primary"
+                      : "text-foreground/60 hover:text-primary"
+                  }`}
                 >
-                  <span className="relative z-10">{item.label}</span>
-                  <motion.div
-                    className="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    layoutId="navbar-hover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
-                </motion.button>
+                  {item.label}
+                </button>
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </motion.button>
+            {/* CTA + Mobile toggle */}
+            <div className="flex items-center gap-3">
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection("#contact")}
+                className="hidden sm:block bg-primary text-white px-5 py-2 rounded-full font-inter text-sm font-medium hover:bg-accent transition-colors duration-200 electric-glow"
+              >
+                יצירת קשר
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors"
+              >
+                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -96,27 +96,31 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-20 left-0 right-0 bottom-0 z-40 lg:hidden bg-background/98 backdrop-blur-xl border-t border-primary/20"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-16 left-0 right-0 z-40 lg:hidden glass-bento border-b border-white/20 shadow-lg"
           >
-            <div className="container mx-auto px-4 py-8">
-              <div className="flex flex-col gap-2">
-                {navItems.map((item, index) => (
-                  <motion.button
-                    key={index}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-right px-6 py-4 text-lg text-foreground hover:text-primary hover:bg-primary/10 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/30"
-                  >
-                    {item.label}
-                  </motion.button>
-                ))}
-              </div>
+            <div className="px-8 py-4 flex flex-col gap-1">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.href}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-right px-4 py-3 text-sm text-foreground hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-200 font-inter"
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+              <button
+                onClick={() => scrollToSection("#contact")}
+                className="mt-2 bg-primary text-white px-5 py-2.5 rounded-full font-inter text-sm font-medium hover:bg-accent transition-colors"
+              >
+                יצירת קשר
+              </button>
             </div>
           </motion.div>
         )}

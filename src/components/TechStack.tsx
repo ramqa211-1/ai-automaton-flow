@@ -5,40 +5,41 @@ const techCategories = [
   {
     title: "פיתוח ואפליקציות",
     icon: Code,
-    color: "from-primary to-primary/50",
-    techs: ["Loveable", "TypeScript", "Web Apps"],
+    status: "Production Ready",
+    techs: ["Loveable", "TypeScript", "React", "Web Apps"],
   },
   {
     title: "אוטומציה וסוכנים",
     icon: Bot,
-    color: "from-secondary to-secondary/50",
-    techs: ["n8n", "AI Agents", "WhatsApp Automation"],
+    status: "Active Pipelines",
+    techs: ["n8n", "AI Agents", "WhatsApp API", "OpenAI"],
   },
   {
     title: "כלי מפתחים",
     icon: Wrench,
-    color: "from-accent to-accent/50",
-    techs: ["Cursor", "Playwright", "Prompt Engineering"],
+    status: "Daily Stack",
+    techs: ["Cursor IDE", "Playwright", "Prompt Engineering", "MCP"],
   },
 ];
 
 const TechStack = () => {
   return (
-    <section id="tech-stack" className="py-20 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
+    <section id="tech-stack" className="py-24 px-8 surface-alt relative">
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-inter text-right md:text-center">
             הטכנולוגיות שאני שולט בהן
           </h2>
+          <div className="kinetic-line max-w-sm mx-auto mt-2" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {techCategories.map((category, index) => (
             <motion.div
               key={index}
@@ -46,30 +47,28 @@ const TechStack = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 gradient-border hover:border-primary/50 transition-all duration-300"
+              className="glass-bento rounded-3xl p-6 gradient-border electric-glow-hover flex flex-col gap-5"
             >
-              <div className="flex items-center gap-3 mb-6 justify-end">
-                <h3 className="text-xl font-bold text-foreground">
-                  {category.title}
-                </h3>
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color}`}>
-                  <category.icon className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-3 justify-end">
+                <h3 className="text-lg font-bold text-foreground font-inter">{category.title}</h3>
+                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary border border-primary/20">
+                  <category.icon className="w-5 h-5" />
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 justify-end">
-                {category.techs.map((tech, techIndex) => (
-                  <motion.span
-                    key={techIndex}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 + techIndex * 0.1, duration: 0.3 }}
-                    className="px-4 py-2 bg-background/80 border border-border rounded-full text-sm font-medium text-foreground hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                {category.techs.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 bg-white/60 border border-primary/15 rounded-full font-mono text-xs font-medium text-foreground/70 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
                   >
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
+              </div>
+
+              <div className="pt-4 border-t border-primary/10">
+                <span className="font-mono text-xs text-primary uppercase tracking-widest">{category.status}</span>
               </div>
             </motion.div>
           ))}

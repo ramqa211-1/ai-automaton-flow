@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Code } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Code } from "lucide-react";
 
 const projects = [
   {
@@ -43,70 +42,60 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-20 px-4 relative">
-      <div className="container mx-auto max-w-7xl">
+    <section id="portfolio" className="py-24 px-8 surface-alt relative">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-inter text-right md:text-center">
             תיק עבודות
           </h2>
-          <p className="text-muted-foreground mt-4 text-lg">
+          <div className="kinetic-line max-w-sm mx-auto mt-2" />
+          <p className="font-mono text-sm text-foreground/50 text-center mt-4">
             פרויקטים שהובילו לתוצאות מדידות
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-card/40 backdrop-blur-sm border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 gradient-border group"
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              className="glass-bento rounded-2xl p-6 gradient-border electric-glow-hover group flex flex-col gap-4"
             >
-              <div className="p-6 space-y-4">
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <Code className="w-5 h-5 text-primary flex-shrink-0" />
-                </div>
+              <div className="flex items-start justify-between gap-2">
+                <Code className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <h3 className="text-base font-bold text-foreground font-inter text-right group-hover:text-primary transition-colors duration-200 flex-1">
+                  {project.title}
+                </h3>
+              </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {project.description}
+              <p className="font-mono text-xs text-foreground/60 leading-relaxed text-right">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-1.5 justify-end">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 bg-primary/10 text-primary font-mono text-xs rounded-full border border-primary/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="pt-3 border-t border-primary/10">
+                <p className="font-mono text-xs font-semibold text-primary text-right">
+                  {project.metrics}
                 </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="pt-4 border-t border-border/50">
-                  <p className="text-sm font-medium text-accent">
-                    {project.metrics}
-                  </p>
-                </div>
-
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full justify-between hover:bg-primary/10 hover:text-primary"
-                >
-                  <span></span>
-                  {/* <ExternalLink className="w-4 h-4" /> */}
-                </Button>
               </div>
             </motion.div>
           ))}

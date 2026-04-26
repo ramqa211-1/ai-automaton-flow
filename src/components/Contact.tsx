@@ -1,72 +1,40 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, Link as LinkIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
 const socialLinks = [
-  {
-    icon: Mail,
-    label: "Email",
-    href: "mailto:ramqaveles@gmail.com",
-    color: "text-primary",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/ram-walas-tal-b1830770",
-    color: "text-[#0A66C2]",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com/ramqa211-1?tab=repositories",
-    color: "text-foreground",
-  },
-  {
-    icon: LinkIcon,
-    label: "Linktree",
-    href: "https://linktr.ee/ram7walas",
-    color: "text-accent",
-  },
+  { icon: Mail, label: "Email", href: "mailto:ramqaveles@gmail.com" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/ram-walas-tal-b1830770" },
+  { icon: Github, label: "GitHub", href: "https://github.com/ramqa211-1?tab=repositories" },
+  { icon: LinkIcon, label: "Linktree", href: "https://linktr.ee/ram7walas" },
 ];
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Here you would typically send the form data to a backend
-    toast({
-      title: "הודעה נשלחה בהצלחה!",
-      description: "אחזור אליך בהקדם",
-    });
-    
+    toast({ title: "הודעה נשלחה בהצלחה!", description: "אחזור אליך בהקדם" });
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <section id="contact" className="py-20 px-4 relative">
-      <div className="container mx-auto max-w-4xl">
+    <section id="contact" className="py-24 px-8 surface-alt relative">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-            בוא נדבר
-          </h2>
-          <p className="text-muted-foreground text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-inter mb-2">בוא נדבר</h2>
+          <div className="kinetic-line max-w-xs mx-auto" />
+          <p className="font-mono text-sm text-foreground/50 mt-4">
             יש לך פרויקט? רעיון? או סתם רוצה לשוחח? אשמח לשמוע
           </p>
         </motion.div>
@@ -77,7 +45,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex justify-center gap-6 mb-12"
+          className="flex justify-center gap-4 mb-10"
         >
           {socialLinks.map((social, index) => (
             <motion.a
@@ -85,11 +53,11 @@ const Contact = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, y: -5 }}
-              className={`p-4 bg-card/50 backdrop-blur-sm border border-border rounded-xl hover:border-primary/50 transition-all duration-300 ${social.color}`}
+              whileHover={{ scale: 1.1, y: -3 }}
+              className="p-4 glass-bento rounded-xl border border-white/30 text-foreground/60 hover:text-primary hover:border-primary/40 transition-all duration-200"
               title={social.label}
             >
-              <social.icon className="w-6 h-6" />
+              <social.icon className="w-5 h-5" />
             </motion.a>
           ))}
         </motion.div>
@@ -99,48 +67,41 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="bg-card/40 backdrop-blur-sm border border-border rounded-2xl p-8 gradient-border"
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="glass-bento rounded-3xl p-8 gradient-border"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <Input
-                type="text"
-                placeholder="שם מלא"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-                className="bg-background/50 border-border focus:border-primary text-right"
-              />
-            </div>
-            <div>
-              <Input
-                type="email"
-                placeholder="אימייל"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-                className="bg-background/50 border-border focus:border-primary text-right"
-              />
-            </div>
-            <div>
-              <Textarea
-                placeholder="ההודעה שלך..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                required
-                rows={6}
-                className="bg-background/50 border-border focus:border-primary text-right resize-none"
-              />
-            </div>
-            <Button
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <Input
+              type="text"
+              placeholder="שם מלא"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+              className="bg-white/60 border-border focus:border-primary text-right font-mono text-sm rounded-xl h-12"
+            />
+            <Input
+              type="email"
+              placeholder="אימייל"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+              className="bg-white/60 border-border focus:border-primary text-right font-mono text-sm rounded-xl h-12"
+            />
+            <Textarea
+              placeholder="ההודעה שלך..."
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              required
+              rows={5}
+              className="bg-white/60 border-border focus:border-primary text-right font-mono text-sm rounded-xl resize-none"
+            />
+            <motion.button
               type="submit"
-              size="lg"
-              className="relative w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 border-2 border-primary/30 hover:border-primary/60 overflow-hidden group"
+              whileTap={{ scale: 0.98 }}
+              className="w-full bg-primary text-white py-4 rounded-xl font-inter font-semibold text-sm hover:bg-accent transition-colors duration-200 electric-glow"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
-              <span className="relative">שלח הודעה</span>
-            </Button>
+              שלח הודעה
+            </motion.button>
           </form>
         </motion.div>
       </div>
