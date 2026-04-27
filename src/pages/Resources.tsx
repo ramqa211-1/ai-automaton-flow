@@ -226,17 +226,8 @@ function PostCard({ post, index }: { post: (typeof featuredPosts)[0]; index: num
           </div>
         </div>
 
-        {/* Image or emoji hero */}
-        <div className="relative z-10 mt-4 text-right flex items-end justify-end gap-3">
-          {post.image && (
-            <img
-              src={post.image}
-              alt={post.title}
-              className="h-16 w-auto max-w-[80px] object-contain"
-            />
-          )}
-          <div className="text-5xl">{post.emoji}</div>
-        </div>
+        {/* Emoji hero */}
+        <div className="relative z-10 text-5xl mt-4 text-right">{post.emoji}</div>
       </div>
 
       {/* Card body */}
@@ -260,7 +251,19 @@ function PostCard({ post, index }: { post: (typeof featuredPosts)[0]; index: num
         <p className="font-mono text-xs text-foreground/50 text-right leading-relaxed">
           {post.subtitle}
         </p>
-        <p className="font-mono text-xs text-foreground/65 text-right leading-relaxed flex-1">
+
+        {/* Full-width image — prominent visual break between intro and body */}
+        {post.image && (
+          <div className="rounded-2xl overflow-hidden border border-border/30 shadow-sm -mx-1">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-52 object-cover"
+            />
+          </div>
+        )}
+
+        <p className="font-mono text-xs text-foreground/65 text-right leading-relaxed">
           {post.description}
         </p>
 

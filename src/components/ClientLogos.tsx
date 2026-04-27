@@ -42,7 +42,7 @@ const clients = [
   },
 ];
 
-const doubled = [...clients, ...clients, ...clients];
+const doubled = [...clients, ...clients];
 
 const LogoAvatar = ({
   client,
@@ -53,11 +53,11 @@ const LogoAvatar = ({
 
   if (client.logo && !imgError) {
     return (
-      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white flex items-center justify-center shrink-0 shadow-md border border-white/50">
+      <div className="w-20 h-20 rounded-2xl overflow-hidden bg-white flex items-center justify-center shrink-0 shadow-md border border-border/30">
         <img
           src={client.logo}
           alt={client.name}
-          className="w-full h-full object-contain p-1"
+          className="w-full h-full object-contain p-1.5"
           onError={() => setImgError(true)}
         />
       </div>
@@ -66,7 +66,7 @@ const LogoAvatar = ({
 
   return (
     <div
-      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-inter font-black text-lg shrink-0 shadow-md`}
+      className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-inter font-black text-xl shrink-0 shadow-md`}
     >
       {client.initials}
     </div>
@@ -100,14 +100,14 @@ const ClientLogos = () => (
     {/* Marquee track */}
     <div className="overflow-hidden">
       <motion.div
-        animate={{ x: ["0%", "-33.333%"] }}
-        transition={{ duration: 22, ease: "linear", repeat: Infinity }}
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: 40, ease: "linear", repeat: Infinity }}
         className="flex gap-5 w-max"
       >
         {doubled.map((client, i) => (
           <div
             key={i}
-            className="flex flex-col items-center gap-2 glass-bento rounded-2xl px-5 py-4 border border-white/30 shrink-0 w-[120px] group hover:border-primary/30 transition-all duration-300"
+            className="flex flex-col items-center gap-2 glass-bento rounded-2xl px-5 py-5 border border-white/30 shrink-0 w-[136px] group hover:border-primary/30 transition-all duration-300"
           >
             <LogoAvatar client={client} />
             <span className="font-inter font-medium text-[10px] text-foreground/60 group-hover:text-foreground/90 transition-colors text-center leading-tight">
