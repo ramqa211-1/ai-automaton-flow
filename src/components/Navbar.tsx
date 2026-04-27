@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { label: "ראשי", href: "#home" },
@@ -12,6 +13,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeHref, setActiveHref] = useState("#home");
@@ -75,6 +77,13 @@ const Navbar = () => {
             <div className="flex items-center gap-3">
               <motion.button
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate("/resources")}
+                className="hidden lg:block border border-primary/40 text-primary px-4 py-1.5 rounded-full font-inter text-sm font-medium hover:bg-primary/5 transition-colors duration-200"
+              >
+                מאגר ידע
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("#contact")}
                 className="hidden sm:block bg-primary text-white px-5 py-2 rounded-full font-inter text-sm font-medium hover:bg-accent transition-colors duration-200 electric-glow"
               >
@@ -115,6 +124,12 @@ const Navbar = () => {
                   {item.label}
                 </motion.button>
               ))}
+              <button
+                onClick={() => { navigate("/resources"); setIsMobileMenuOpen(false); }}
+                className="text-right px-4 py-3 text-sm text-primary border border-primary/25 rounded-xl transition-all duration-200 font-inter hover:bg-primary/5"
+              >
+                📚 מאגר ידע
+              </button>
               <button
                 onClick={() => scrollToSection("#contact")}
                 className="mt-2 bg-primary text-white px-5 py-2.5 rounded-full font-inter text-sm font-medium hover:bg-accent transition-colors"
