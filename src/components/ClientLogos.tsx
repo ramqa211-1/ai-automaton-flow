@@ -6,37 +6,37 @@ const clients = [
     name: "ביטוח ישיר",
     initials: "BI",
     color: "from-blue-500 to-blue-700",
-    logo: "/logos/bituch-yashar.png",
+    logo: "/images/ביטוח ישיר.png",
   },
   {
     name: "מכללת ניו מדיה",
     initials: "NM",
     color: "from-violet-500 to-purple-700",
-    logo: "/logos/new-media.png",
+    logo: "/images/ניו מדיה.png",
   },
   {
     name: "תיכון עמל חדרה",
     initials: "EC",
     color: "from-emerald-500 to-teal-700",
-    logo: "/logos/amal.png",
+    logo: "/images/עמל.png",
   },
   {
     name: "קהילת VIBE HUB",
     initials: "VH",
     color: "from-orange-500 to-rose-600",
-    logo: null,
+    logo: "/images/media-posts/vibehib.png",
   },
   {
     name: "מכללת SVCOLLEGE",
     initials: "SV",
     color: "from-primary to-accent",
-    logo: "/logos/svcollege.png",
+    logo: "/images/SVC.jpg",
   },
   {
     name: "שמוליק אבוקסיס",
     initials: "SA",
     color: "from-slate-600 to-slate-800",
-    logo: "/logos/shmoulik.png",
+    logo: "/images/שמול.png",
   },
 ];
 

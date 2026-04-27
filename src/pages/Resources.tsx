@@ -33,6 +33,7 @@ const featuredPosts = [
       "כדאי להשקיע בבניית Context איכותי לפני שמשדרגים מודל",
       "Cursor + Sonnet + Context טוב עולה פחות ועושה יותר",
     ],
+    image: "/images/media-posts/model input.png",
     platform: "LinkedIn",
     platformColor: "text-[#0A66C2]",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7450461100241903616/",
@@ -59,6 +60,7 @@ const featuredPosts = [
       "Canva Pro מאחד הכל לפורמט שמוכן ל-LinkedIn/Instagram",
       "כל התהליך אפשרי ב-0 שקלים עם tier החינמי של הכלים",
     ],
+    image: "/images/media-posts/video ai.png",
     platform: "LinkedIn",
     platformColor: "text-[#0A66C2]",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7408491181237485568/",
@@ -85,6 +87,7 @@ const featuredPosts = [
       "הכלי חינמי לחלוטין ב-self-host — מתאים לכל עסק",
       "האתגר האמיתי הוא לא הטכנולוגיה — אלא לדעת מה לאוטמט",
     ],
+    image: "/images/media-posts/vibehib.png",
     platform: "LinkedIn",
     platformColor: "text-[#0A66C2]",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7383044528456318976/",
@@ -221,8 +224,17 @@ function PostCard({ post, index }: { post: (typeof featuredPosts)[0]; index: num
           </div>
         </div>
 
-        {/* Emoji hero */}
-        <div className="relative z-10 text-5xl mt-4 text-right">{post.emoji}</div>
+        {/* Image or emoji hero */}
+        <div className="relative z-10 mt-4 text-right flex items-end justify-end gap-3">
+          {post.image && (
+            <img
+              src={post.image}
+              alt={post.title}
+              className="h-16 w-auto max-w-[80px] object-contain"
+            />
+          )}
+          <div className="text-5xl">{post.emoji}</div>
+        </div>
       </div>
 
       {/* Card body */}
