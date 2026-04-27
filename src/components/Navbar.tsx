@@ -4,11 +4,11 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "ראשי", href: "#home" },
-  { label: "אודותיי", href: "#about" },
   { label: "שירותים", href: "#services" },
-  { label: "הדרכות", href: "#training" },
-  { label: "תחומי התמחות", href: "#expertise" },
+  { label: "הדרכות", href: "#booking" },
   { label: "תיק עבודות", href: "#portfolio" },
+  { label: "תוכן", href: "#content" },
+  { label: "יצירת קשר", href: "#contact" },
 ];
 
 const Navbar = () => {

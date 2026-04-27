@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
-import { Lightbulb, Settings, Bot, Compass, Rocket } from "lucide-react";
+import { Lightbulb, Settings, Bot, Compass, Rocket, Sparkles } from "lucide-react";
 
 const offerings = [
+  {
+    icon: Sparkles,
+    title: "Claude Code & Agentic Development",
+    description: "בניית סוכני AI אוטונומיים עם Claude Code שכותבים, מתקנים ומריצים קוד בעצמם — הדור הבא של הפיתוח",
+    badge: "Claude Code",
+  },
   {
     icon: Bot,
     title: "AI Agents מותאמים אישית",

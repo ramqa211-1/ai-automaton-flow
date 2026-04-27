@@ -18,7 +18,7 @@ const techCategories = [
     title: "כלי מפתחים",
     icon: Wrench,
     status: "Daily Stack",
-    techs: ["Cursor IDE", "Playwright", "Prompt Engineering", "MCP"],
+    techs: ["Claude Code", "Cursor IDE", "Playwright", "Prompt Engineering", "MCP"],
   },
 ];
 

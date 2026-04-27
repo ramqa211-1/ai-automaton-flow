@@ -4,10 +4,12 @@ import { Code, Cpu, Sparkles, Database } from "lucide-react";
 const skills = [
   { name: "Playwright & TypeScript", icon: Code, level: 95 },
   { name: "AI & LLM Integration", icon: Sparkles, level: 92 },
+  { name: "Claude Code & Agentic Coding", icon: Sparkles, level: 96 },
   { name: "n8n & Automation Platforms", icon: Cpu, level: 90 },
   { name: "Python & Node.js", icon: Code, level: 88 },
   { name: "CI/CD & Jenkins", icon: Database, level: 87 },
   { name: "Vision AI & GPT-4", icon: Sparkles, level: 93 },
+  { name: "Cursor IDE & Prompt Engineering", icon: Code, level: 94 },
 ];
 
 const Expertise = () => {
