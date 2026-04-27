@@ -1,15 +1,75 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const clients = [
-  { name: "ביטוח ישיר", initials: "BI", color: "from-blue-500 to-blue-700" },
-  { name: "מכללת ניו מדיה", initials: "NM", color: "from-violet-500 to-purple-700" },
-  { name: "תיכון עמל חדרה", initials: "EC", color: "from-emerald-500 to-teal-700" },
-  { name: "קהילת VIBE HUB", initials: "VH", color: "from-orange-500 to-rose-600" },
-  { name: "מכללת SVCOLLEGE", initials: "SV", color: "from-primary to-accent" },
+  {
+    name: "ביטוח ישיר",
+    initials: "BI",
+    color: "from-blue-500 to-blue-700",
+    logo: "/logos/bituch-yashar.png",
+  },
+  {
+    name: "מכללת ניו מדיה",
+    initials: "NM",
+    color: "from-violet-500 to-purple-700",
+    logo: "/logos/new-media.png",
+  },
+  {
+    name: "תיכון עמל חדרה",
+    initials: "EC",
+    color: "from-emerald-500 to-teal-700",
+    logo: "/logos/amal.png",
+  },
+  {
+    name: "קהילת VIBE HUB",
+    initials: "VH",
+    color: "from-orange-500 to-rose-600",
+    logo: null,
+  },
+  {
+    name: "מכללת SVCOLLEGE",
+    initials: "SV",
+    color: "from-primary to-accent",
+    logo: "/logos/svcollege.png",
+  },
+  {
+    name: "שמוליק אבוקסיס",
+    initials: "SA",
+    color: "from-slate-600 to-slate-800",
+    logo: "/logos/shmoulik.png",
+  },
 ];
 
-// Duplicate for seamless loop
 const doubled = [...clients, ...clients, ...clients];
+
+const LogoAvatar = ({
+  client,
+}: {
+  client: (typeof clients)[0];
+}) => {
+  const [imgError, setImgError] = useState(false);
+
+  if (client.logo && !imgError) {
+    return (
+      <div className="w-10 h-10 rounded-xl overflow-hidden bg-white flex items-center justify-center shrink-0 shadow-md border border-white/50">
+        <img
+          src={client.logo}
+          alt={client.name}
+          className="w-full h-full object-contain p-0.5"
+          onError={() => setImgError(true)}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`w-10 h-10 rounded-xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-inter font-black text-sm shrink-0 shadow-md`}
+    >
+      {client.initials}
+    </div>
+  );
+};
 
 const ClientLogos = () => (
   <section className="py-16 px-0 relative overflow-hidden bg-background">
@@ -25,7 +85,7 @@ const ClientLogos = () => (
           לקוחות
         </span>
         <h2 className="text-2xl md:text-3xl font-black text-foreground font-inter">
-          ארגונים שעבדתי איתם
+          לקוחות מרוצים (:
         </h2>
         <div className="kinetic-line max-w-xs mx-auto mt-2" />
       </motion.div>
@@ -47,10 +107,7 @@ const ClientLogos = () => (
             key={i}
             className="flex items-center gap-3 glass-bento rounded-2xl px-6 py-4 border border-white/30 shrink-0 min-w-[200px] group hover:border-primary/30 transition-all duration-300"
           >
-            {/* Monogram avatar */}
-            <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-inter font-black text-sm shrink-0 shadow-md`}>
-              {client.initials}
-            </div>
+            <LogoAvatar client={client} />
             <span className="font-inter font-semibold text-sm text-foreground/75 group-hover:text-foreground transition-colors whitespace-nowrap">
               {client.name}
             </span>
