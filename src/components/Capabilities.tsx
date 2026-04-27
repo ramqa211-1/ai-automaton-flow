@@ -1,29 +1,42 @@
 import { motion } from "framer-motion";
+import { ScanSearch, Kanban, GraduationCap, BrainCircuit } from "lucide-react";
 
 const capabilities = [
   {
-    image: "/src/assets/data.png",
+    Icon: ScanSearch,
     title: "ניתוח מערכות ותהליכים",
     description: "הבנה עמוקה של תהליכים עסקיים ומציאת נקודות ייעול",
     badge: "Analysis",
+    gradient: "from-violet-500/20 to-primary/20",
+    iconBg: "bg-violet-500/15 border-violet-400/30",
+    iconColor: "text-violet-600",
   },
   {
-    image: "/src/assets/projects.png",
+    Icon: Kanban,
     title: "ניהול פרויקטים טכנולוגיים",
     description: "הובלת פרויקטים מורכבים מהרעיון ועד המימוש",
     badge: "Management",
+    gradient: "from-sky-500/20 to-cyan-400/20",
+    iconBg: "bg-sky-500/15 border-sky-400/30",
+    iconColor: "text-sky-600",
   },
   {
-    image: "/src/assets/mmtor.png",
+    Icon: GraduationCap,
     title: "הנחיה והדרכה",
     description: "העברת ידע והעצמה של אנשים וצוותים",
     badge: "Mentoring",
+    gradient: "from-emerald-500/20 to-teal-400/20",
+    iconBg: "bg-emerald-500/15 border-emerald-400/30",
+    iconColor: "text-emerald-600",
   },
   {
-    image: "/src/assets/innovation.png",
+    Icon: BrainCircuit,
     title: "חדשנות ופתרון בעיות",
     description: "גישה יצירתית למציאת פתרונות טכנולוגיים מתקדמים",
     badge: "Innovation",
+    gradient: "from-primary/20 to-rose-400/20",
+    iconBg: "bg-primary/15 border-primary/30",
+    iconColor: "text-primary",
   },
 ];
 
@@ -56,13 +69,13 @@ const Capabilities = () => {
               className="glass-bento rounded-2xl p-6 gradient-border electric-glow-hover group"
             >
               <div className="flex flex-col items-center text-center gap-4">
-                <div className="p-3 bg-white/60 rounded-2xl border-2 border-primary/20 group-hover:border-primary/50 transition-all duration-300">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-20 h-20 object-contain neon-pulse"
-                  />
+                {/* Gradient icon container */}
+                <div className={`relative p-5 rounded-3xl bg-gradient-to-br ${item.gradient} border ${item.iconBg} group-hover:scale-110 transition-transform duration-300`}>
+                  <item.Icon className={`w-10 h-10 ${item.iconColor}`} strokeWidth={1.5} />
+                  {/* Subtle glow ring */}
+                  <div className={`absolute inset-0 rounded-3xl ${item.iconBg} blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300 -z-10`} />
                 </div>
+
                 <div className="inline-flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20">
                   <span className="font-mono text-xs font-medium tracking-wider">{item.badge}</span>
                 </div>

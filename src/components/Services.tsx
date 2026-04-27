@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Bot, Zap } from "lucide-react";
+import { Building2, Workflow, Network } from "lucide-react";
 
 const services = [
   {
@@ -15,7 +15,7 @@ const services = [
   },
   {
     category: "אוטומציות שמשנות חיים",
-    icon: Bot,
+    icon: Workflow,
     description: "אוטומציה היא לא רק לעסקים, היא לחיים עצמם.",
     items: [
       { num: "01", title: "Smart WhatsApp", desc: "תמלול הודעות קוליות אוטומטי וסוכן טלגרם חכם שמנהל את המייל." },
@@ -25,7 +25,7 @@ const services = [
   },
   {
     category: "אינטגרציות ארגוניות",
-    icon: Zap,
+    icon: Network,
     description: "חיבור מערכות AI לסביבות עסקיות מורכבות.",
     items: [
       { num: "01", title: "Enterprise AI", desc: "חיבור AI Agents למערכות כמו Azure DevOps לאוטומציה מלאה." },
@@ -98,7 +98,7 @@ const Services = () => {
           >
             <div className="space-y-3 text-right">
               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20 mr-auto">
-                <Bot className="w-5 h-5" />
+                <Workflow className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-foreground font-inter">{services[1].category}</h3>
               <p className="font-mono text-xs text-foreground/55 leading-relaxed">{services[1].description}</p>
@@ -118,7 +118,7 @@ const Services = () => {
           >
             <div className="space-y-3 text-right">
               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20 mr-auto">
-                <Zap className="w-5 h-5" />
+                <Network className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-foreground font-inter">{services[2].category}</h3>
               <p className="font-mono text-xs text-foreground/55 leading-relaxed">{services[2].description}</p>

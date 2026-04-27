@@ -12,6 +12,7 @@ import WhatIBring from "@/components/WhatIBring";
 import Expertise from "@/components/Expertise";
 import Capabilities from "@/components/Capabilities";
 import Portfolio from "@/components/Portfolio";
+import ClientLogos from "@/components/ClientLogos";
 import ContentHub from "@/components/ContentHub";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
@@ -37,6 +38,7 @@ const Index = () => {
       <Expertise />
       <Capabilities />
       <Portfolio />
+      <ClientLogos />
       <ContentHub />
       <CTA />
       <Contact />

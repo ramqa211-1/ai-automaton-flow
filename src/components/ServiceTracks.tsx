@@ -33,6 +33,7 @@ const tracks = [
       "אינטגרציה עם AI models וכלים קיימים",
       "Prompt Engineering מעשי",
       "Deploy ועמידה בפרודקשן",
+      "תכנון מותאם אישית לעסק שלכם!",
     ],
     badge: "✨ הכי פופולרי",
     badgeColor: "bg-primary/10 text-primary border-primary/30",

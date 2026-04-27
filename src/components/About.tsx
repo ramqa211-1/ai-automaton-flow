@@ -23,7 +23,7 @@ const About = () => {
           className="glass-bento rounded-3xl p-8 md:p-12 gradient-border electric-glow-hover"
         >
           <p className="font-mono text-sm md:text-base text-foreground/75 leading-relaxed mb-6 text-right">
-            אני פריק של טכנולוגיה ו-AI, אבל לפני הכל – אני מאמין ביעילות. בשנתיים האחרונות אני חי ונושם את עולמות ה-Generative AI, וממיר כמעט כל תהליך ידני לאוטומציה חכמה.
+            אני פריק של טכנולוגיה ו-AI, אבל לפני הכל – אני מאמין ביעילות. בשנים האחרונות אני חי ונושם את עולמות ה-Generative AI, וממיר כמעט כל תהליך ידני לאוטומציה חכמה.
           </p>
           <p className="font-mono text-sm md:text-base text-foreground/75 leading-relaxed mb-6 text-right">
             מהנדס QA Automation עם למעלה מ-10 שנות ניסיון, מתמחה כיום בבדיקות מונחות AI ואוטומציה חכמה.

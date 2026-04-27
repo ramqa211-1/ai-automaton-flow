@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Link as LinkIcon } from "lucide-react";
+import { Mail, Linkedin, Github, Link as LinkIcon, Phone, MessageCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -37,6 +37,36 @@ const Contact = () => {
           <p className="font-mono text-sm text-foreground/50 mt-4">
             יש לך פרויקט? רעיון? או סתם רוצה לשוחח? אשמח לשמוע
           </p>
+        </motion.div>
+
+        {/* WhatsApp + Phone CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+        >
+          <motion.a
+            href="https://wa.me/972548010190"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-inter font-bold text-base shadow-lg shadow-[#25D366]/30 hover:bg-[#1ebe5d] transition-colors duration-200"
+          >
+            <MessageCircle className="w-5 h-5" />
+            שלח הודעה בוואטסאפ
+          </motion.a>
+          <motion.a
+            href="tel:0548010190"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="flex items-center justify-center gap-3 glass-bento border-2 border-primary/40 text-primary px-8 py-4 rounded-2xl font-inter font-bold text-base hover:border-primary/70 hover:bg-primary/5 transition-all duration-200"
+          >
+            <Phone className="w-5 h-5" />
+            054-8010190
+          </motion.a>
         </motion.div>
 
         {/* Social Links */}
