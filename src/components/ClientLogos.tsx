@@ -53,11 +53,11 @@ const LogoAvatar = ({
 
   if (client.logo && !imgError) {
     return (
-      <div className="w-10 h-10 rounded-xl overflow-hidden bg-white flex items-center justify-center shrink-0 shadow-md border border-white/50">
+      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white flex items-center justify-center shrink-0 shadow-md border border-white/50">
         <img
           src={client.logo}
           alt={client.name}
-          className="w-full h-full object-contain p-0.5"
+          className="w-full h-full object-contain p-1"
           onError={() => setImgError(true)}
         />
       </div>
@@ -66,7 +66,7 @@ const LogoAvatar = ({
 
   return (
     <div
-      className={`w-10 h-10 rounded-xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-inter font-black text-sm shrink-0 shadow-md`}
+      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-inter font-black text-lg shrink-0 shadow-md`}
     >
       {client.initials}
     </div>
@@ -107,10 +107,10 @@ const ClientLogos = () => (
         {doubled.map((client, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 glass-bento rounded-2xl px-6 py-4 border border-white/30 shrink-0 min-w-[200px] group hover:border-primary/30 transition-all duration-300"
+            className="flex flex-col items-center gap-2 glass-bento rounded-2xl px-5 py-4 border border-white/30 shrink-0 w-[120px] group hover:border-primary/30 transition-all duration-300"
           >
             <LogoAvatar client={client} />
-            <span className="font-inter font-semibold text-sm text-foreground/75 group-hover:text-foreground transition-colors whitespace-nowrap">
+            <span className="font-inter font-medium text-[10px] text-foreground/60 group-hover:text-foreground/90 transition-colors text-center leading-tight">
               {client.name}
             </span>
           </div>
