@@ -1,5 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
+import { X, ZoomIn } from "lucide-react";
 
 const bubbles = [
   { text: "אני שומע על AI כל הזמן אבל לא יודע מאיפה להתחיל", delay: 0.2 },
@@ -59,6 +60,7 @@ const ThinkingPerson = () => (
 const PainPoints = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
     <section className="py-24 px-8 relative overflow-hidden bg-gradient-to-b from-background via-background to-surface-alt">
@@ -149,13 +151,62 @@ const PainPoints = () => {
             transition={{ delay: 0.5, duration: 0.7 }}
             className="flex-1 flex items-center justify-center"
           >
-            <img
-              src={`${import.meta.env.BASE_URL}images/general/solutions.png`}
-              alt="מהמחשבות לתוצאות — הפתרון שלנו"
-              className="w-full max-w-xl rounded-3xl shadow-2xl border border-border/20 object-contain"
-            />
+            <div
+              className="relative group cursor-zoom-in w-full max-w-xl"
+              onClick={() => setLightboxOpen(true)}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}images/general/solutions.png`}
+                alt="מהמחשבות לתוצאות — הפתרון שלנו"
+                className="w-full rounded-3xl shadow-2xl border border-border/20 object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+              {/* Zoom overlay on hover */}
+              <div className="absolute inset-0 rounded-3xl bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2 shadow-lg">
+                  <ZoomIn className="w-4 h-4 text-foreground" />
+                  <span className="font-mono text-xs font-semibold text-foreground">לחץ להגדלה</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
+
+        {/* Lightbox */}
+        <AnimatePresence>
+          {lightboxOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10"
+              onClick={() => setLightboxOpen(false)}
+            >
+              {/* Backdrop */}
+              <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+
+              {/* Close button */}
+              <button
+                className="absolute top-5 left-5 z-10 bg-white/10 hover:bg-white/25 border border-white/20 text-white rounded-full p-2.5 transition-all duration-200"
+                onClick={() => setLightboxOpen(false)}
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Image */}
+              <motion.img
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.85, opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                src={`${import.meta.env.BASE_URL}images/general/solutions.png`}
+                alt="מהמחשבות לתוצאות — הפתרון שלנו"
+                className="relative z-10 max-w-full max-h-full w-auto h-auto rounded-2xl shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Resolution CTA */}
         <motion.div
