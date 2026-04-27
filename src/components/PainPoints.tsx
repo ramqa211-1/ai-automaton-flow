@@ -83,60 +83,78 @@ const PainPoints = () => {
           </h2>
         </motion.div>
 
-        {/* Main layout: bubbles left | person right */}
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+        {/* Main layout: existing content (left) | image (right) */}
+        <div className="flex flex-col lg:flex-row items-stretch gap-10">
 
-          {/* Bubbles column */}
-          <div className="flex-1 space-y-4">
-            {bubbles.map((bubble, i) => (
+          {/* Left half — bubbles + person */}
+          <div className="flex-1 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+
+            {/* Bubbles column */}
+            <div className="flex-1 space-y-4">
+              {bubbles.map((bubble, i) => (
+                <motion.div
+                  key={i}
+                  variants={floatVariants(i)}
+                  animate={inView ? "animate" : undefined}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: bubble.delay, duration: 0.6 }}
+                  className="relative"
+                >
+                  <div className="glass-bento rounded-2xl rounded-tr-sm px-5 py-4 border border-white/50 shadow-sm flex items-start gap-3 text-right group hover:border-primary/30 hover:shadow-md transition-all duration-300 electric-glow-hover">
+                    <p className="font-mono text-sm text-foreground/75 leading-relaxed flex-1">{bubble.text}</p>
+                    <span className="text-lg mt-0.5 shrink-0">💭</span>
+                  </div>
+                  <div className="absolute -left-2 top-4 w-3 h-3 bg-white/50 border-l border-b border-white/50 rotate-45 hidden md:block" />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Person column */}
+            <div className="shrink-0 flex flex-col items-center gap-8">
               <motion.div
-                key={i}
-                variants={floatVariants(i)}
-                animate={inView ? "animate" : undefined}
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: bubble.delay, duration: 0.6 }}
-                className="relative"
+                transition={{ delay: 0.3, duration: 0.7, type: "spring", bounce: 0.3 }}
               >
-                <div className="glass-bento rounded-2xl rounded-tr-sm px-5 py-4 border border-white/50 shadow-sm flex items-start gap-3 text-right group hover:border-primary/30 hover:shadow-md transition-all duration-300 electric-glow-hover">
-                  <p className="font-mono text-sm text-foreground/75 leading-relaxed flex-1">{bubble.text}</p>
-                  <span className="text-lg mt-0.5 shrink-0">💭</span>
-                </div>
-                {/* Bubble tail */}
-                <div className="absolute -left-2 top-4 w-3 h-3 bg-white/50 border-l border-b border-white/50 rotate-45 hidden md:block" />
+                <ThinkingPerson />
               </motion.div>
-            ))}
-          </div>
-
-          {/* Person column */}
-          <div className="shrink-0 flex flex-col items-center gap-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.7, type: "spring", bounce: 0.3 }}
-            >
-              <ThinkingPerson />
-            </motion.div>
-
-            {/* Arrow pointing to CTA */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 2.8, duration: 0.6 }}
-              className="flex flex-col items-center gap-1"
-            >
               <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="text-primary text-2xl"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 2.8, duration: 0.6 }}
               >
-                ↓
+                <motion.div
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-primary text-2xl"
+                >
+                  ↓
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
+
+          {/* Divider */}
+          <div className="hidden lg:block w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent self-stretch" />
+
+          {/* Right half — solutions infographic */}
+          <motion.div
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.7 }}
+            className="flex-1 flex items-center justify-center"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}images/general/solutions.png`}
+              alt="מהמחשבות לתוצאות — הפתרון שלנו"
+              className="w-full max-w-xl rounded-3xl shadow-2xl border border-border/20 object-contain"
+            />
+          </motion.div>
         </div>
 
         {/* Resolution CTA */}
