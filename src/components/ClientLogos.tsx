@@ -1,42 +1,44 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+const base = import.meta.env.BASE_URL;
+
 const clients = [
   {
     name: "ביטוח ישיר",
     initials: "BI",
     color: "from-blue-500 to-blue-700",
-    logo: "/images/ביטוח ישיר.png",
+    logo: `${base}images/bituch-yashar.png`,
   },
   {
     name: "מכללת ניו מדיה",
     initials: "NM",
     color: "from-violet-500 to-purple-700",
-    logo: "/images/ניו מדיה.png",
+    logo: `${base}images/new-media.png`,
   },
   {
     name: "תיכון עמל חדרה",
     initials: "EC",
     color: "from-emerald-500 to-teal-700",
-    logo: "/images/עמל.png",
+    logo: `${base}images/amal.png`,
   },
   {
     name: "קהילת VIBE HUB",
     initials: "VH",
     color: "from-orange-500 to-rose-600",
-    logo: "/images/media-posts/vibehib.png",
+    logo: `${base}images/media-posts/vibehib.png`,
   },
   {
     name: "מכללת SVCOLLEGE",
     initials: "SV",
     color: "from-primary to-accent",
-    logo: "/images/SVC.jpg",
+    logo: `${base}images/SVC.jpg`,
   },
   {
     name: "שמוליק אבוקסיס",
     initials: "SA",
     color: "from-slate-600 to-slate-800",
-    logo: "/images/שמול.png",
+    logo: `${base}images/shmoulik.png`,
   },
 ];
 
