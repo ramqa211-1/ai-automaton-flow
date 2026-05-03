@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
+import LogoAccent from "./LogoAccent";
 
 const Hero = () => {
   return (
@@ -9,6 +10,10 @@ const Hero = () => {
 
       {/* Soft radial gradient overlay */}
       <div className="absolute inset-0 z-0 [background:radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(182,0,89,0.06)_0%,transparent_80%)]" />
+
+      {/* Logo Accent */}
+      <LogoAccent position="bottom-left" size="sm" opacity={0.05} animated={true} />
+      <LogoAccent position="top-right" size="sm" opacity={0.04} animated={true} />
 
       {/* Kinetic animated nodes */}
       <div className="absolute inset-0 pointer-events-none z-0">

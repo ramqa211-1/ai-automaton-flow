@@ -1,0 +1,85 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m ' *)",
+      "Bash(npm run *)",
+      "Bash(git add *)",
+      "Bash(git push *)",
+      "Bash(gh run *)",
+      "Read(//c/Users/RamWalastal/**)",
+      "Bash(mkdir -p \"c:/Users/RamWalastal/fun projects/meetingCalaculteAI/src/components/clients\")",
+      "Bash(mkdir -p \"c:/Users/RamWalastal/fun projects/meetingCalaculteAI/src/components/invoices\")",
+      "Bash(npx tsc *)",
+      "Bash(claude mcp *)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(firebase --version)",
+      "Bash(npm ls *)",
+      "Read(//c/c/Users/RamWalastal/fun projects/meetingCalaculteAI/**)",
+      "Bash(firebase deploy *)",
+      "Bash(firebase login:list)",
+      "Bash(firebase firestore:databases:list --project mettingcalculate-ai)",
+      "Bash(gcloud --version)",
+      "Bash(firebase auth:export users.json --project mettingcalculate-ai --format=json)",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(u.get\\('email'\\),'->',u.get\\('localId'\\)\\) for u in d.get\\('users',[]\\)]\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080)",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"vite\")",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(git fetch *)",
+      "Bash(taskkill /F /IM node.exe)",
+      "PowerShell(Get-Process -Name node -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "WebFetch(domain:ramqa211-1.github.io)",
+      "Bash(ffmpeg -version)",
+      "Bash(mkdir -p \"/tmp/crm_frames\")",
+      "Bash(ffmpeg -y -i \"/c/Users/RamWalastal/ai-automaton-flow/demo site buis.gif\" -vf \"fps=0.5,scale=800:-1\" \"/tmp/crm_frames/frame_%03d.jpg\")",
+      "Read(//tmp/**)",
+      "Bash(ffprobe -v error -show_entries stream=width,height,r_frame_rate,nb_frames,duration -of default=noprint_wrappers=1 \"/c/Users/RamWalastal/ai-automaton-flow/demo site buis.gif\")",
+      "Read(//c/Windows/Fonts//**)",
+      "Bash(ffmpeg -y -hide_banner -i \"../demo site buis.gif\" -filter_complex \"[0:v]setpts=PTS/2.0,scale=1920:-2:flags=lanczos,pad=1920:1080:0:0:color=#0a0605,fps=30,fade=t=in:st=0:d=0.6,subtitles=captions.ass:fontsdir='C\\\\\\\\:/Windows/Fonts'[v]\" -map \"[v]\" -t 28 -c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p main.mp4)",
+      "Read(//c/c/Users/RamWalastal/ai-automaton-flow/.video_build/**)",
+      "Bash(ffprobe -v error -show_entries stream=width,height,codec_name,duration,r_frame_rate -of default=noprint_wrappers=1 main.mp4)",
+      "Bash(ffmpeg -y -hide_banner -ss 4 -i main.mp4 -frames:v 1 -q:v 3 sample_caption.jpg)",
+      "Bash(ffmpeg -y -hide_banner -f lavfi -i \"color=c=#0a0605:s=1920x1080:d=4:r=30\" -filter_complex \"[0:v]drawbox=x=860:y=860:w=200:h=4:color=#FF6B35:t=fill,fade=t=in:st=0:d=0.5,fade=t=out:st=3.4:d=0.6,subtitles=outro.ass:fontsdir='C\\\\\\\\:/Windows/Fonts'[v]\" -map \"[v]\" -c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p -t 4 outro.mp4)",
+      "Bash(ffprobe -v error -show_entries stream=width,height,duration -of default=noprint_wrappers=1 outro.mp4)",
+      "Bash(ffmpeg -y -hide_banner -ss 2 -i outro.mp4 -frames:v 1 -update 1 -q:v 3 sample_outro.jpg)",
+      "Bash(ffmpeg -y -hide_banner -f concat -safe 0 -i concat.txt -i beat.m4a -map 0:v:0 -map 1:a:0 -c:v copy -c:a copy -shortest \"../marketing-reel.mp4\")",
+      "Bash(ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,duration -show_entries format=duration,size -of default=noprint_wrappers=1 \"../marketing-reel.mp4\")",
+      "Bash(ffmpeg -y -hide_banner -ss 30 -i marketing-reel.mp4 -frames:v 1 -update 1 -q:v 3 .video_build/sample_final_outro.jpg)",
+      "Bash(ffmpeg -y -hide_banner -ss 13 -i marketing-reel.mp4 -frames:v 1 -update 1 -q:v 3 .video_build/sample_final_invoice.jpg)",
+      "Bash(rm -rf .tmp_frames)",
+      "Bash(rm -f .video_build/sample_caption.jpg .video_build/sample_outro.jpg .video_build/sample_final_invoice.jpg .video_build/sample_final_outro.jpg)",
+      "Read(//c/c/Users/RamWalastal/ai-automaton-flow/**)",
+      "Bash(curl -s http://localhost:8084)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\RamWalastal\\.claude\\projects\\c--Users-RamWalastal-ai-automaton-flow\\memory",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI\\src\\components\\dashboard",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI\\src\\pages",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI\\src\\types",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI\\src\\lib",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI\\src\\components\\clients",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI\\src\\components\\invoices",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI\\src",
+      "c:\\Users\\RamWalastal\\fun projects\\meetingCalaculteAI",
+      "\\tmp\\crm_frames"
+    ]
+  },
+  "enabledPlugins": {
+    "playwright@claude-plugins-official": true
+  },
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}

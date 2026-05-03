@@ -1,0 +1,41 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - heading "ברוכים הבאים למערכת" [level=1] [ref=e7]
+        - paragraph [ref=e8]: התחברו כדי לנהל את הפגישות וההכנסות שלכם
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - text: אימייל
+          - textbox "אימייל" [ref=e11]:
+            - /placeholder: הכנס את האימייל שלך
+        - generic [ref=e12]:
+          - text: סיסמה
+          - textbox "סיסמה" [ref=e13]:
+            - /placeholder: הכנס את הסיסמה שלך
+        - button "התחבר" [ref=e14] [cursor=pointer]
+      - generic [ref=e19]: או
+      - button "התחבר עם Google" [ref=e20] [cursor=pointer]
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - heading "נהלו את כל הפגישות וההכנסות שלכם במקום אחד" [level=2] [ref=e23]
+        - paragraph [ref=e24]: מערכת מתקדמת לניהול פגישות, חישוב הכנסות ואינטגרציה לוואטסאפ
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - img [ref=e28]
+          - generic [ref=e30]:
+            - heading "ניהול פגישות חכם" [level=3] [ref=e31]
+            - paragraph [ref=e32]: עקבו אחר כל הפגישות שלכם עם מעקב אוטומטי של זמנים ולקוחות
+        - generic [ref=e33]:
+          - img [ref=e35]
+          - generic [ref=e37]:
+            - heading "חישוב הכנסות אוטומטי" [level=3] [ref=e38]
+            - paragraph [ref=e39]: ראו בזמן אמת כמה הרווחתם וכמה עוד צפוי להיכנס
+        - generic [ref=e40]:
+          - img [ref=e42]
+          - generic [ref=e45]:
+            - heading "אינטגרציה לוואטסאפ" [level=3] [ref=e46]
+            - paragraph [ref=e47]: הוסיפו פגישות ישירות מוואטסאפ עם הודעות פשוטות

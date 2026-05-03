@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Building2, Workflow, Network } from "lucide-react";
+import LogoAccent from "./LogoAccent";
 
 const services = [
   {
@@ -51,8 +52,9 @@ const SectionHeader = ({ title }: { title: string }) => (
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 px-8 relative">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-24 px-8 relative overflow-hidden">
+      <LogoAccent position="bottom-right" size="md" opacity={0.04} animated={true} />
+      <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader title="מה אני עושה?" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 md:h-[580px]">

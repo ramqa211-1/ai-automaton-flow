@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import LogoAccent from "./LogoAccent";
 
 const About = () => {
   return (
-    <section id="about" className="py-24 px-8 surface-alt relative">
-      <div className="max-w-4xl mx-auto">
+    <section id="about" className="py-24 px-8 surface-alt relative overflow-hidden">
+      <LogoAccent position="top-left" size="md" opacity={0.05} animated={true} />
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

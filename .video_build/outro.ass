@@ -1,0 +1,22 @@
+[Script Info]
+Title: Outro Card
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Title,David,140,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,177
+Style: Accent,David,140,&H00356BFF,&H00356BFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,177
+Style: Tag,Arial,46,&H00B0B0B0,&H00B0B0B0,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,0,5,0,0,0,177
+Style: Url,Arial,54,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,2,0,0,140,177
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:04.00,Title,,0,0,0,,{\an5\pos(960,420)\fad(400,300)}מערכת ניהול.
+Dialogue: 0,0:00:00.50,0:00:04.00,Accent,,0,0,0,,{\an5\pos(960,580)\fad(400,300)}לעוסק פטור.
+Dialogue: 0,0:00:01.10,0:00:04.00,Tag,,0,0,0,,{\an5\pos(960,720)\fad(500,300)}AI · WhatsApp · עברית
+Dialogue: 0,0:00:01.40,0:00:04.00,Url,,0,0,0,,{\an2\fad(500,300)}ramqa211-1.github.io/meetingcalculate
