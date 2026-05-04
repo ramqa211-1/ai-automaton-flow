@@ -363,6 +363,22 @@ function PostCard({ post, index }: { post: (typeof featuredPosts)[0]; index: num
           {post.description}
         </p>
 
+        {/* Post image */}
+        {"image" in post && post.image && (
+          <div
+            className="overflow-hidden rounded-[2px] -mx-1"
+            style={{ border: `1px solid ${post.accentColor}25` }}
+          >
+            <img
+              src={post.image}
+              alt={post.title}
+              loading="lazy"
+              className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              style={{ height: "200px", filter: "brightness(0.88) contrast(1.05)" }}
+            />
+          </div>
+        )}
+
         {/* Takeaways */}
         <div
           className="rounded-[2px] p-4 space-y-2.5"
