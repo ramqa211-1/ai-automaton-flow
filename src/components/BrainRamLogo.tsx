@@ -30,7 +30,7 @@ const BrainRamLogo = ({ size = "md", showText = true, className = "", onClick }:
         className="overflow-hidden rounded-xl flex-shrink-0 ring-1 ring-emerald-500/40 shadow-[0_0_16px_rgba(16,185,129,0.25)]"
       >
         <img
-          src="/images/brain-ram-logo.jpg"
+          src={`${import.meta.env.BASE_URL}images/brain-ram-logo.jpg`}
           alt="Brain Ram Services"
           className="w-full h-auto block"
         />

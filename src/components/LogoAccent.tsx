@@ -29,7 +29,7 @@ const LogoAccent = ({
 
   const logoContent = (
     <img
-      src="/images/brain-ram-logo.jpg"
+      src={`${import.meta.env.BASE_URL}images/brain-ram-logo.jpg`}
       alt="Brain Ram Logo Accent"
       className="w-full h-full object-cover rounded-lg filter grayscale"
       style={{ opacity }}

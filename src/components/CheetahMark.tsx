@@ -50,7 +50,7 @@ const CheetahMark = ({
       className={className}
     >
       <img
-        src="/images/brain-ram-logo.jpg"
+        src={`${import.meta.env.BASE_URL}images/brain-ram-logo.jpg`}
         alt=""
         aria-hidden="true"
         style={{ width: "100%", height: "auto", display: "block", opacity }}
