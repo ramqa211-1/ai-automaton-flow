@@ -1,0 +1,134 @@
+{
+  "name": "Contact Form → Email + WhatsApp",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "contact-form-brainram"
+    },
+    {
+      "parameters": {
+        "fromEmail": "raiservices211@gmail.com",
+        "toEmail": "raiservices211@gmail.com",
+        "subject": "=פנייה חדשה מהאתר: {{ $json.body.name }}",
+        "emailType": "html",
+        "message": "=<div dir=\"rtl\" style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;\">\n  <h2 style=\"color: #059669; border-bottom: 2px solid #059669; padding-bottom: 10px;\">📬 פנייה חדשה מהאתר</h2>\n  <table style=\"width: 100%; border-collapse: collapse;\">\n    <tr>\n      <td style=\"padding: 10px; background: #f8fafc; font-weight: bold; width: 30%;\">שם:</td>\n      <td style=\"padding: 10px;\">{{ $json.body.name }}</td>\n    </tr>\n    <tr>\n      <td style=\"padding: 10px; background: #f8fafc; font-weight: bold;\">אימייל:</td>\n      <td style=\"padding: 10px;\"><a href=\"mailto:{{ $json.body.email }}\">{{ $json.body.email }}</a></td>\n    </tr>\n    <tr>\n      <td style=\"padding: 10px; background: #f8fafc; font-weight: bold;\">הודעה:</td>\n      <td style=\"padding: 10px; white-space: pre-wrap;\">{{ $json.body.message }}</td>\n    </tr>\n    <tr>\n      <td style=\"padding: 10px; background: #f8fafc; font-weight: bold;\">נשלח בתאריך:</td>\n      <td style=\"padding: 10px;\">{{ $now.format('dd/MM/yyyy HH:mm') }}</td>\n    </tr>\n  </table>\n  <p style=\"margin-top: 20px; color: #64748b; font-size: 12px;\">הודעה זו נשלחה אוטומטית מ-Brain Ram Services</p>\n</div>",
+        "options": {}
+      },
+      "id": "gmail-node",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [500, 200],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_WITH_YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.green-api.com/waInstance{{$credentials.idInstance}}/sendMessage/{{$credentials.apiTokenInstance}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "chatId",
+              "value": "972548010190@c.us"
+            },
+            {
+              "name": "message",
+              "value": "=🔔 *פנייה חדשה מהאתר!*\n\n👤 שם: {{ $('Webhook').item.json.body.name }}\n📧 אימייל: {{ $('Webhook').item.json.body.email }}\n💬 הודעה:\n{{ $('Webhook').item.json.body.message }}\n\n⏰ {{ $now.format('dd/MM/yyyy HH:mm') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "whatsapp-node",
+      "name": "WhatsApp (Green API)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"ההודעה התקבלה, נחזור אליך בהקדם!\" }",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "response-node",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [760, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "WhatsApp (Green API)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp (Green API)": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

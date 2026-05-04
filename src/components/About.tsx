@@ -36,19 +36,6 @@ const About = () => {
             "בין אם זה לבנות אפליקציה מורכבת ב-Loveable, לכתוב קוד מדויק ב-Cursor או להקים מערך סוכנים ב-n8n,
             המטרה שלי היא אחת: לקחת את הכלים החזקים ביותר שיש היום ולרתום אותם לטובת עסקים, אנשים ומשפחות."
           </p>
-
-          <div className="mt-8 pt-6 border-t border-primary/10 grid grid-cols-3 gap-4 text-center">
-            {[
-              { value: "10+", label: "שנות ניסיון" },
-              { value: "60%", label: "הפחתת מאמץ ידני" },
-              { value: "100+", label: "אוטומציות פעילות" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-2xl font-black text-primary font-inter">{stat.value}</div>
-                <div className="font-mono text-xs text-foreground/50 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

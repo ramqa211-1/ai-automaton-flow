@@ -12,14 +12,33 @@ const socialLinks = [
   { icon: LinkIcon, label: "Linktree", href: "https://linktr.ee/ram7walas" },
 ];
 
+const N8N_WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL || "https://n8n.ramwalast.com/webhook/contact-form";
+
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "הודעה נשלחה בהצלחה!", description: "אחזור אליך בהקדם" });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      if (N8N_WEBHOOK_URL) {
+        const res = await fetch(N8N_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        if (!res.ok) throw new Error("webhook failed");
+      }
+      toast({ title: "הודעה נשלחה בהצלחה!", description: "אחזור אליך בהקדם 🚀" });
+      setFormData({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "שגיאה בשליחה", description: "אנא נסה שוב או פנה בוואטסאפ", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,9 +147,10 @@ const Contact = () => {
             <motion.button
               type="submit"
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-primary text-white py-4 rounded-xl font-inter font-semibold text-sm hover:bg-accent transition-colors duration-200 electric-glow"
+              disabled={isSubmitting}
+              className="w-full bg-primary text-white py-4 rounded-xl font-inter font-semibold text-sm hover:bg-accent transition-colors duration-200 electric-glow disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              שלח הודעה
+              {isSubmitting ? "שולח..." : "שלח הודעה"}
             </motion.button>
           </form>
         </motion.div>

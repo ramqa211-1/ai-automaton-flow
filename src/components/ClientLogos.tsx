@@ -57,6 +57,8 @@ const LogoAvatar = ({
         <img
           src={client.logo}
           alt={client.name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-contain p-1.5"
           onError={() => setImgError(true)}
         />
@@ -86,9 +88,9 @@ const ClientLogos = () => (
         <span className="inline-block font-mono text-xs text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full mb-3">
           לקוחות
         </span>
-        <h2 className="text-2xl md:text-3xl font-black text-foreground font-inter">
+        <h3 className="text-2xl md:text-3xl font-black text-foreground font-inter">
           לקוחות מרוצים (:
-        </h2>
+        </h3>
         <div className="kinetic-line max-w-xs mx-auto mt-2" />
       </motion.div>
     </div>

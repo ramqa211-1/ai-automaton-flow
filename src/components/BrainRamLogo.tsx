@@ -7,42 +7,43 @@ interface BrainRamLogoProps {
   onClick?: () => void;
 }
 
-const BrainRamLogo = ({
-  size = "md",
-  showText = true,
-  className = "",
-  onClick,
-}: BrainRamLogoProps) => {
-  const sizeConfig = {
-    sm: { height: "h-8", img: "h-8" },
-    md: { height: "h-10", img: "h-10" },
-    lg: { height: "h-16", img: "h-16" },
-    xl: { height: "h-20", img: "h-20" },
-  };
+const sizes = {
+  sm: { mark: 44, titleCls: "text-xs", subtitleCls: "text-[9px]" },
+  md: { mark: 60, titleCls: "text-sm", subtitleCls: "text-[10px]" },
+  lg: { mark: 80, titleCls: "text-base", subtitleCls: "text-xs" },
+  xl: { mark: 104, titleCls: "text-xl", subtitleCls: "text-sm" },
+};
 
-  const config = sizeConfig[size];
+const BrainRamLogo = ({ size = "md", showText = true, className = "", onClick }: BrainRamLogoProps) => {
+  const { mark, titleCls, subtitleCls } = sizes[size];
 
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
       onClick={onClick}
-      className={`cursor-pointer flex items-center gap-3 group ${className}`}
+      className={`cursor-pointer flex items-center gap-3 select-none ${className}`}
     >
-      <div className={`${config.img} flex-shrink-0 relative overflow-hidden rounded-lg`}>
+      {/* Cheetah mark — square container clips the portrait image to show only the cheetah */}
+      <div
+        style={{ width: mark, height: mark }}
+        className="overflow-hidden rounded-xl flex-shrink-0 ring-1 ring-emerald-500/40 shadow-[0_0_16px_rgba(16,185,129,0.25)]"
+      >
         <img
           src="/images/brain-ram-logo.jpg"
           alt="Brain Ram Services"
-          className="w-full h-full object-cover"
+          className="w-full h-auto block"
         />
       </div>
 
-      {showText && size !== "sm" && (
-        <div className="flex flex-col leading-tight">
-          <span className="font-black text-xs md:text-sm tracking-wider text-foreground uppercase">
-            Brain Ram
+      {showText && (
+        <div className="flex flex-col leading-none gap-1">
+          <span className={`font-black tracking-[0.12em] text-white uppercase ${titleCls}`}>
+            BRAIN RAM
           </span>
-          <span className="font-light text-xs text-primary">SERVICES</span>
+          <span className={`font-semibold tracking-[0.28em] text-emerald-400 uppercase ${subtitleCls}`}>
+            SERVICES
+          </span>
         </div>
       )}
     </motion.div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Wrench, Rocket } from "lucide-react";
+import CheetahMark from "./CheetahMark";
 
 const steps = [
   {
@@ -33,7 +34,18 @@ const steps = [
 
 const HowItWorks = () => (
   <section id="how-it-works" className="py-24 px-8 relative overflow-hidden">
-    <div className="max-w-5xl mx-auto">
+    {/* Cheetah background accent — speed motif fits "how fast we work" */}
+    <motion.div
+      initial={{ opacity: 0, x: 80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      className="absolute right-[-40px] top-1/2 -translate-y-1/2 pointer-events-none"
+    >
+      <CheetahMark size={220} opacity={0.05} rounded="lg" />
+    </motion.div>
+
+    <div className="max-w-5xl mx-auto relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -41,6 +53,16 @@ const HowItWorks = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
+        {/* Cheetah eyebrow icon */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-4"
+        >
+          <CheetahMark size={40} opacity={0.9} rounded="md" className="ring-1 ring-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.3)]" />
+        </motion.div>
         <h2 className="text-3xl md:text-4xl font-black text-foreground font-inter mb-2">
           איך עובדים יחד?
         </h2>

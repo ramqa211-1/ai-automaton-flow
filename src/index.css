@@ -57,10 +57,22 @@
 
   body {
     @apply bg-background text-foreground font-inter antialiased;
+    text-align: right;
+    direction: rtl;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* RTL logical properties — ensure UI widgets align correctly */
+  input, textarea, select {
+    text-align: right;
+  }
+
+  /* Correct placeholder alignment in RTL inputs */
+  ::placeholder {
+    text-align: right;
   }
 }
 

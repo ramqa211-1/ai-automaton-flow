@@ -7,7 +7,7 @@ import BrainRamLogo from "./BrainRamLogo";
 const navItems = [
   { label: "ראשי", href: "#home" },
   { label: "שירותים", href: "#services" },
-  { label: "הדרכות", href: "#booking" },
+  { label: "הדרכות", href: "#training" },
   { label: "תיק עבודות", href: "#portfolio" },
   { label: "תוכן", href: "#content" },
   { label: "יצירת קשר", href: "#contact" },
@@ -47,14 +47,9 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between h-20 md:h-24">
-            {/* Logo - Larger */}
-            <motion.div
-              whileHover={{ scale: 1.08 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <BrainRamLogo size="lg" showText={true} onClick={() => scrollToSection("#home")} className="md:scale-110" />
-            </motion.div>
+          <div className="flex items-center justify-between h-24 md:h-28">
+            {/* Logo */}
+            <BrainRamLogo size="lg" showText={true} onClick={() => scrollToSection("#home")} />
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center gap-1">
@@ -66,7 +61,7 @@ const Navbar = () => {
                   className={`font-inter text-sm tracking-tight transition-all duration-200 px-4 py-2 rounded-lg ${
                     activeHref === item.href
                       ? "text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/30"
-                      : "text-foreground/70 hover:text-emerald-400"
+                      : "text-slate-200 hover:text-emerald-400"
                   }`}
                 >
                   {item.label}
@@ -113,17 +108,17 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-20 left-0 right-0 z-40 lg:hidden bg-gradient-to-b from-slate-950 to-slate-900/95 backdrop-blur-xl border-b border-emerald-500/20 shadow-[0_10px_40px_rgba(16,185,129,0.15)]"
+            className="fixed top-24 left-0 right-0 z-40 lg:hidden bg-gradient-to-b from-slate-950 to-slate-900/95 backdrop-blur-xl border-b border-emerald-500/20 shadow-[0_10px_40px_rgba(16,185,129,0.15)]"
           >
             <div className="px-6 py-4 flex flex-col gap-2">
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.href}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-right px-4 py-3 text-sm text-foreground/70 hover:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-all duration-200 font-inter"
+                  className="text-right px-4 py-3 text-sm text-slate-200 hover:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-all duration-200 font-inter"
                 >
                   {item.label}
                 </motion.button>

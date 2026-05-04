@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
-import LogoAccent from "./LogoAccent";
+import CheetahMark from "./CheetahMark";
 
 const Hero = () => {
   return (
@@ -11,9 +11,25 @@ const Hero = () => {
       {/* Soft radial gradient overlay */}
       <div className="absolute inset-0 z-0 [background:radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(182,0,89,0.06)_0%,transparent_80%)]" />
 
-      {/* Logo Accent */}
-      <LogoAccent position="bottom-left" size="sm" opacity={0.05} animated={true} />
-      <LogoAccent position="top-right" size="sm" opacity={0.04} animated={true} />
+      {/* Cheetah watermark — large, left-side background motif */}
+      <motion.div
+        initial={{ opacity: 0, x: -60 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.4, ease: "easeOut", delay: 0.3 }}
+        className="absolute left-[-60px] bottom-[5%] pointer-events-none z-0"
+      >
+        <CheetahMark size={340} opacity={0.07} rounded="lg" />
+      </motion.div>
+
+      {/* Cheetah watermark — small, top-right corner accent */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
+        className="absolute right-[2%] top-[12%] pointer-events-none z-0"
+      >
+        <CheetahMark size={120} opacity={0.06} rounded="lg" />
+      </motion.div>
 
       {/* Kinetic animated nodes */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -55,7 +71,7 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="text-right order-2 md:order-1"
@@ -110,7 +126,7 @@ const Hero = () => {
 
           {/* Hero Image */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="order-1 md:order-2"
