@@ -11,7 +11,6 @@ import {
   ChevronDown,
   ChevronUp,
   Zap,
-  Search,
   RefreshCw,
   Database,
 } from "lucide-react";
@@ -479,7 +478,13 @@ export default function Resources() {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("הכל");
   const [searchQuery, setSearchQuery] = useState("");
-  const [showSearch, setShowSearch] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const existing = document.getElementById("nv-style");
@@ -519,80 +524,21 @@ export default function Resources() {
 
       {/* ── HEADER ── */}
       <header
-        className="sticky top-0 z-50 w-full flex items-center justify-between px-8 py-4 nv-glass"
-        style={{ borderBottom: "1px solid rgba(42,255,138,0.18)", boxShadow: "0 4px 24px rgba(0,0,0,0.5)" }}
+        className="sticky top-0 z-50 w-full grid px-8 py-4 nv-glass"
+        style={{ borderBottom: "1px solid rgba(42,255,138,0.18)", boxShadow: "0 4px 24px rgba(0,0,0,0.5)", gridTemplateColumns: "1fr auto 1fr" }}
       >
         {/* Logo */}
-        <div className="flex items-center gap-5">
-          <div
-            className="flex items-center gap-2 nv-title font-black italic tracking-tight cursor-pointer select-none"
-            style={{ color: "#2AFF8A", fontSize: "18px", filter: "drop-shadow(0 0 10px rgba(42,255,138,0.55))" }}
-            onClick={() => navigate("/")}
-          >
-            <Zap className="w-6 h-6" />
-            BRAIN RAM
-          </div>
-
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {[
-              { label: "ראשי", href: "/" },
-              { label: "שירותים", href: "/#services" },
-              { label: "פורטפוליו", href: "/#portfolio" },
-              { label: "מאמרים", href: "/resources", active: true },
-              { label: "צור קשר", href: "/#contact" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="nv-label px-3 py-2 rounded-[2px] transition-all duration-200"
-                style={{
-                  color: item.active ? "#2AFF8A" : "rgba(186,203,185,0.7)",
-                  borderBottom: item.active ? "2px solid #2AFF8A" : "2px solid transparent",
-                  textDecoration: "none",
-                }}
-                onMouseEnter={(e) => !item.active && (e.currentTarget.style.color = "#2AFF8A")}
-                onMouseLeave={(e) => !item.active && (e.currentTarget.style.color = "rgba(186,203,185,0.7)")}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+        <div
+          className="flex items-center gap-2 nv-title font-black italic tracking-tight cursor-pointer select-none"
+          style={{ color: "#2AFF8A", fontSize: "18px", filter: "drop-shadow(0 0 10px rgba(42,255,138,0.55))" }}
+          onClick={() => navigate("/")}
+        >
+          <Zap className="w-6 h-6" />
+          BRAIN RAM
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-          {showSearch ? (
-            <motion.input
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 180, opacity: 1 }}
-              exit={{ width: 0, opacity: 0 }}
-              autoFocus
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onBlur={() => !searchQuery && setShowSearch(false)}
-              placeholder="חיפוש..."
-              className="nv-title text-right text-sm outline-none rounded-[2px] px-3 py-1.5"
-              style={{
-                background: "rgba(42,255,138,0.07)",
-                border: "1px solid rgba(42,255,138,0.3)",
-                color: "#e2e2e8",
-                fontFamily: "Space Grotesk, sans-serif",
-                fontSize: "12px",
-              }}
-            />
-          ) : (
-            <button
-              onClick={() => setShowSearch(true)}
-              className="p-2 rounded-full transition-all duration-200"
-              style={{ color: "#2AFF8A" }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(42,255,138,0.1)")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
-            >
-              <Search className="w-4 h-4" />
-            </button>
-          )}
-
+        {/* Back button — centered */}
+        <div className="flex items-center justify-center">
           <button
             onClick={() => navigate("/")}
             className="nv-btn-primary px-5 py-2 rounded-[2px] flex items-center gap-2"
@@ -603,6 +549,8 @@ export default function Resources() {
             </span>
           </button>
         </div>
+
+        <div />
       </header>
 
       <main className="relative z-10 max-w-7xl mx-auto px-6 py-12 flex flex-col gap-16">
@@ -904,6 +852,26 @@ export default function Resources() {
           ))}
         </nav>
       </footer>
+
+      {/* ── FLOATING BACK BUTTON ── */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => navigate("/")}
+            className="nv-btn-primary fixed bottom-6 left-6 z-50 px-5 py-2.5 rounded-[2px] flex items-center gap-2"
+            style={{ boxShadow: "0 0 24px rgba(42,255,138,0.35)" }}
+          >
+            <span className="flex items-center gap-1.5">
+              חזרה לאתר
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
