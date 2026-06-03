@@ -1,0 +1,33 @@
+- generic [ref=e3]:
+  - main [ref=e181]:
+    - generic [ref=e182]:
+      - generic [ref=e183]:
+        - img [ref=e184]
+        - text: AI שמבין את העסק שלך
+      - heading "איך לשלב AI בעסק שלך?" [level=1] [ref=e186]
+      - paragraph [ref=e187]:
+        - text: ענה על כמה שאלות קצרות, ותקבל
+        - strong [ref=e188]: 3-4 אוטומציות AI ברות-יישום
+        - text: מותאמות בדיוק למקצוע ולכאבים שלך.
+    - generic [ref=e189]:
+      - heading "מה המקצוע שלך?" [level=2] [ref=e190]
+      - generic [ref=e191]:
+        - button "ראיית חשבון / הנהלת חשבונות" [ref=e192] [cursor=pointer]
+        - button "עריכת דין" [ref=e193] [cursor=pointer]
+        - button "שיווק" [ref=e194] [cursor=pointer]
+        - button "שירות לקוחות" [ref=e195] [cursor=pointer]
+        - button "מכירות" [ref=e196] [cursor=pointer]
+        - button "מעצב/ת שיער" [ref=e197] [cursor=pointer]
+        - button "חשמלאי" [active] [ref=e198] [cursor=pointer]
+        - button "מאמן/ת כושר" [ref=e199] [cursor=pointer]
+        - button "אחר" [ref=e200] [cursor=pointer]
+      - button "בוא נתחיל" [ref=e201] [cursor=pointer]:
+        - text: בוא נתחיל
+        - img [ref=e202]
+    - paragraph [ref=e204]: ⏱️ לוקח כ-2 דקות · ללא צורך בהרשמה
+  - button "AI Key Mock" [ref=e28] [cursor=pointer]:
+    - img [ref=e30]
+    - generic [ref=e35]: AI Key
+    - generic [ref=e36]:
+      - img [ref=e37]
+      - text: Mock

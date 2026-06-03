@@ -1,0 +1,34 @@
+- generic [ref=e3]:
+  - main [ref=e39]:
+    - generic [ref=e42]:
+      - generic [ref=e43]: שאלה 3 מתוך 9
+      - generic [ref=e44]: 22%
+    - generic [ref=e65]:
+      - heading "מה הכאבים שהכי מציקים לך? (בחר/י כמה שרלוונטי)" [level=2] [ref=e66]
+      - paragraph [ref=e67]: 2 נבחרו
+      - generic [ref=e68]:
+        - button "כתיבת הצעות מחיר לכל פרויקט מחדש ✓" [ref=e84] [cursor=pointer]:
+          - generic [ref=e70]: כתיבת הצעות מחיר לכל פרויקט מחדש
+          - generic [ref=e71]: ✓
+        - button "תיאום לוחות זמנים ועבודות" [ref=e72] [cursor=pointer]:
+          - generic [ref=e73]: תיאום לוחות זמנים ועבודות
+        - button "מעקב אחרי חייבים ותשלומים" [ref=e75] [cursor=pointer]:
+          - generic [ref=e76]: מעקב אחרי חייבים ותשלומים
+        - button "מענה לפניות חדשות בזמן עבודה ✓" [active] [ref=e85] [cursor=pointer]:
+          - generic [ref=e79]: מענה לפניות חדשות בזמן עבודה
+          - generic [ref=e80]: ✓
+        - button "ניהול ניירת ואישורים" [ref=e81] [cursor=pointer]:
+          - generic [ref=e82]: ניהול ניירת ואישורים
+    - generic [ref=e53]:
+      - button "הקודם" [ref=e54] [cursor=pointer]:
+        - img [ref=e55]
+        - text: הקודם
+      - button "הבא" [ref=e57] [cursor=pointer]:
+        - text: הבא
+        - img [ref=e58]
+  - button "AI Key Mock" [ref=e28] [cursor=pointer]:
+    - img [ref=e30]
+    - generic [ref=e35]: AI Key
+    - generic [ref=e36]:
+      - img [ref=e37]
+      - text: Mock

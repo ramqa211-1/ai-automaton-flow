@@ -1,4 +1,4 @@
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 import { useRef, useState } from "react";
 import { X, ZoomIn } from "lucide-react";
 
@@ -10,7 +10,7 @@ const bubbles = [
   { text: "לא רוצה להחליף עובדים — רוצה להעצים אותם", delay: 2.2 },
 ];
 
-const floatVariants = (i: number) => ({
+const floatVariants = (i: number): Variants => ({
   animate: {
     y: [0, i % 2 === 0 ? -6 : -4, 0],
     transition: {

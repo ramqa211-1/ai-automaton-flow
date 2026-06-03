@@ -1,0 +1,25 @@
+- generic [ref=e3]:
+  - main [ref=e205]:
+    - generic [ref=e208]:
+      - generic [ref=e209]: שאלה 1 מתוך 9
+      - generic [ref=e210]: 0%
+    - generic [ref=e212]:
+      - heading "מה גודל העסק שלך?" [level=2] [ref=e213]
+      - generic [ref=e214]:
+        - button "עצמאי/ת לבד" [ref=e215] [cursor=pointer]
+        - button "2-5 עובדים" [ref=e216] [cursor=pointer]
+        - button "6-20 עובדים" [ref=e217] [cursor=pointer]
+        - button "מעל 20" [ref=e218] [cursor=pointer]
+    - generic [ref=e219]:
+      - button "הקודם" [disabled] [ref=e220]:
+        - img [ref=e221]
+        - text: הקודם
+      - button "הבא" [disabled] [ref=e223]:
+        - text: הבא
+        - img [ref=e224]
+  - button "AI Key Mock" [ref=e28] [cursor=pointer]:
+    - img [ref=e30]
+    - generic [ref=e35]: AI Key
+    - generic [ref=e36]:
+      - img [ref=e37]
+      - text: Mock

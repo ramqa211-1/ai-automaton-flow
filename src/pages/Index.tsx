@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
@@ -62,18 +63,28 @@ const Index = () => {
               <h4 className="font-bold text-emerald-400 uppercase tracking-widest mb-6 text-sm">קישורים</h4>
               <ul className="space-y-3">
                 {[
-                  { label: "ראשי", href: "#home" },
-                  { label: "שירותים", href: "#services" },
-                  { label: "תיק עבודות", href: "#portfolio" },
-                  { label: "צור קשר", href: "#contact" },
+                  { label: "ראשי", to: "#home" },
+                  { label: "אודות", to: "/about" },
+                  { label: "שירותים", to: "#services" },
+                  { label: "תיק עבודות", to: "#portfolio" },
+                  { label: "צור קשר", to: "#contact" },
                 ].map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-inter"
-                    >
-                      {link.label}
-                    </a>
+                    {link.to.startsWith("/") ? (
+                      <Link
+                        to={link.to}
+                        className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-inter"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.to}
+                        className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-inter"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

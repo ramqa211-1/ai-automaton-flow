@@ -1,0 +1,22 @@
+- generic [ref=e3]:
+  - main [ref=e39]:
+    - generic [ref=e42]:
+      - generic [ref=e43]: שאלה 2 מתוך 9
+      - generic [ref=e44]: 11%
+    - generic [ref=e60]:
+      - heading "מה גוזל לך הכי הרבה זמן ביום-יום?" [level=2] [ref=e61]
+      - paragraph [ref=e62]: תאר/י בכמה מילים את המשימה שהכי 'אוכלת' לך את היום
+      - textbox "כתוב/כתבי כאן..." [ref=e63]
+    - generic [ref=e53]:
+      - button "הקודם" [ref=e54] [cursor=pointer]:
+        - img [ref=e55]
+        - text: הקודם
+      - button "הבא" [disabled] [ref=e57]:
+        - text: הבא
+        - img [ref=e58]
+  - button "AI Key Mock" [ref=e28] [cursor=pointer]:
+    - img [ref=e30]
+    - generic [ref=e35]: AI Key
+    - generic [ref=e36]:
+      - img [ref=e37]
+      - text: Mock
