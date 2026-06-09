@@ -1,0 +1,16 @@
+{
+  "name": "kyab-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Higgsfield video generation CLI for KYAB-project",
+  "bin": {
+    "gen-video": "./generate-video.mjs"
+  },
+  "scripts": {
+    "gen": "node generate-video.mjs"
+  },
+  "dependencies": {
+    "@higgsfield/client": "^0.2.1"
+  }
+}

@@ -39,6 +39,12 @@ Thumbs.db
 .temp
 .tmp
 
+# Generated videos (Higgsfield output) — large binaries
+KYAB-project/media/generated/
+
+# Personal memory / project notes — never commit
+documention/
+
 # Lock files (optional - keep package-lock.json but ignore others)
 bun.lockb
 yarn.lock
