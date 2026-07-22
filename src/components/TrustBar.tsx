@@ -8,30 +8,35 @@ const stats = [
 ];
 
 const TrustBar = () => (
-  <section className="py-8 px-8 border-y border-border/60 bg-white/70 backdrop-blur-sm">
-    <div className="max-w-5xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
-      >
-        {stats.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="flex flex-col items-center gap-0.5"
+  <section id="stats" className="py-14 px-6 md:px-12">
+    <div
+      className="max-w-[1240px] mx-auto grid gap-10 rounded-[32px] border border-primary/15 px-8 md:px-11 py-14"
+      style={{
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        background:
+          "linear-gradient(135deg, rgb(var(--brand-rgb) / 0.08), rgba(255,255,255,0.015))",
+      }}
+    >
+      {stats.map((s, i) => (
+        <motion.div
+          key={s.label}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.08, duration: 0.5 }}
+          className="text-center"
+        >
+          {/* dir=ltr: RTL bidi would otherwise render "10+" as "+10" */}
+          <div
+            dir="ltr"
+            className="font-display font-extrabold tracking-[-1px] text-primary leading-none text-[clamp(44px,5.5vw,68px)]"
           >
-            <span className="text-3xl font-black text-primary font-inter">{s.value}</span>
-            <span className="font-inter font-semibold text-sm text-foreground">{s.label}</span>
-            <span className="font-mono text-xs text-foreground/45">{s.sub}</span>
-          </motion.div>
-        ))}
-      </motion.div>
+            {s.value}
+          </div>
+          <div className="text-[15px] text-foreground/85 mt-3">{s.label}</div>
+          <div className="font-heebo font-light text-xs text-muted-foreground mt-1">{s.sub}</div>
+        </motion.div>
+      ))}
     </div>
   </section>
 );

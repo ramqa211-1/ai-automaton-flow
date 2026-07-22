@@ -1,126 +1,94 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Wrench, Rocket } from "lucide-react";
-import CheetahMark from "./CheetahMark";
+import { MessageCircle } from "lucide-react";
 
 const steps = [
   {
-    num: "01",
-    icon: MessageCircle,
+    num: "שלב 01",
     emoji: "💬",
     title: "שיחת גילוי",
     subtitle: "30 דקות חינם, ללא התחייבות",
     description: "מדברים על העסק שלך, מה בוזבז, מה אפשר לשפר. אני ממפה הזדמנויות ומביא לך ROI משוער.",
-    color: "from-blue-500/10 to-blue-500/5",
   },
   {
-    num: "02",
-    icon: Wrench,
+    num: "שלב 02",
     emoji: "🔧",
     title: "בנייה מהירה",
     subtitle: "Sprints שבועיים עם demos חיים",
     description: "אין 6 חודשי 'ייעוץ'. אנחנו בונים ביחד, רואים תוצאות מהר, ומתקנים בדרך.",
-    color: "from-primary/10 to-primary/5",
   },
   {
-    num: "03",
-    icon: Rocket,
+    num: "שלב 03",
     emoji: "🚀",
     title: "השקה ומסירה",
     subtitle: "הצוות שלך שולט — לא תלוי בי",
     description: "תיעוד מלא, הדרכת הצוות, ותמיכה לאחר השקה. המטרה שלי: שתוכל להמשיך בלעדיי.",
-    color: "from-green-500/10 to-green-500/5",
   },
 ];
 
 const HowItWorks = () => (
-  <section id="how-it-works" className="py-24 px-8 relative overflow-hidden">
-    {/* Cheetah background accent — speed motif fits "how fast we work" */}
-    <motion.div
-      initial={{ opacity: 0, x: 80 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      className="absolute right-[-40px] top-1/2 -translate-y-1/2 pointer-events-none"
-    >
-      <CheetahMark size={220} opacity={0.05} rounded="lg" />
-    </motion.div>
-
-    <div className="max-w-5xl mx-auto relative z-10">
+  <section id="how-it-works" className="py-24 px-6 md:px-12 relative overflow-hidden">
+    <div className="max-w-[1240px] mx-auto relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-14"
+        className="text-center mb-16"
       >
-        {/* Cheetah eyebrow icon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center mb-4"
-        >
-          <CheetahMark size={40} opacity={0.9} rounded="md" className="ring-1 ring-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.3)]" />
-        </motion.div>
-        <h2 className="text-3xl md:text-4xl font-black text-foreground font-inter mb-2">
-          איך עובדים יחד?
+        <div className="text-sm tracking-[3px] text-muted-foreground mb-4">התהליך</div>
+        <h2 className="font-display font-extrabold tracking-[-0.5px] text-[clamp(34px,4.6vw,60px)]">
+          מרעיון לאוטומציה שעובדת
         </h2>
-        <div className="kinetic-line max-w-xs mx-auto" />
-        <p className="font-mono text-sm text-foreground/50 mt-4">
-          3 שלבים. פשוט, מהיר, עם תוצאות אמיתיות
-        </p>
       </motion.div>
 
-      <div className="relative">
-        {/* Connecting kinetic line (desktop) */}
-        <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div
+        className="grid gap-0"
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}
+      >
+        {steps.map((step, i) => (
+          <motion.div
+            key={step.num}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.15, duration: 0.6 }}
+            className="relative px-7 pt-2 pb-7"
+          >
+            {/* dot + trailing rule */}
+            <div className="flex items-center gap-3.5 mb-5">
+              <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_rgb(var(--brand-rgb)/0.6)] shrink-0" />
+              <div className="flex-1 h-px bg-gradient-to-l from-primary/50 to-foreground/[0.06]" />
+            </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2, duration: 0.6 }}
-              className="flex flex-col items-center text-center gap-4"
-            >
-              {/* Number + Icon circle */}
-              <div className="relative">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} border border-primary/20 flex items-center justify-center text-2xl shadow-sm`}>
-                  {step.emoji}
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center font-mono text-xs font-bold">
-                  {i + 1}
-                </div>
-              </div>
-
-              <div className="glass-bento rounded-2xl p-6 w-full gradient-border electric-glow-hover space-y-2">
-                <h3 className="text-lg font-black font-inter text-foreground">{step.title}</h3>
-                <p className="font-mono text-xs text-primary uppercase tracking-wider">{step.subtitle}</p>
-                <p className="font-mono text-xs text-foreground/60 leading-relaxed">{step.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            <div className="font-display text-[15px] text-primary mb-2.5">{step.num}</div>
+            <h4 className="font-display text-[22px] font-bold mb-1.5 flex items-center gap-2">
+              <span>{step.emoji}</span>
+              {step.title}
+            </h4>
+            <p className="font-heebo text-xs text-primary/80 uppercase tracking-wider mb-3">
+              {step.subtitle}
+            </p>
+            <p className="font-heebo font-light text-[15px] text-muted-foreground leading-[1.6]">
+              {step.description}
+            </p>
+          </motion.div>
+        ))}
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-        className="text-center mt-12"
+        transition={{ delay: 0.5, duration: 0.5 }}
+        className="text-center mt-14"
       >
-        <motion.button
-          whileTap={{ scale: 0.97 }}
+        <button
           onClick={() => window.open("https://wa.me/972548010190", "_blank")}
-          className="bg-primary text-white px-10 py-4 rounded-xl font-inter font-semibold text-sm electric-glow hover:bg-accent transition-all duration-200 inline-flex items-center gap-2"
+          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 rounded-full font-heebo font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgb(var(--brand-rgb)/0.35)] active:scale-95"
         >
           <MessageCircle className="w-4 h-4" />
           התחל משיחת גילוי חינמית
-        </motion.button>
+        </button>
       </motion.div>
     </div>
   </section>

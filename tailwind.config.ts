@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
+        heebo: ['Heebo', 'Inter', 'sans-serif'],
+        display: ['"Frank Ruhl Libre"', 'Heebo', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

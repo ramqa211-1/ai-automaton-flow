@@ -1,155 +1,140 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
-import CheetahMark from "./CheetahMark";
 
-const Hero = () => {
-  return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-8 overflow-hidden">
-      {/* Background grid */}
-      <div className="absolute inset-0 z-0 cyber-grid opacity-60" />
+// The headline is split so each line can stagger in on its own, and so the
+// last line can carry the marker-pen highlight from the design.
+const headline = ["AI שגורם", "לארגון שלכם"];
+const highlighted = "לעצור נשימה";
 
-      {/* Soft radial gradient overlay */}
-      <div className="absolute inset-0 z-0 [background:radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(182,0,89,0.06)_0%,transparent_80%)]" />
+const stack = ["CLAUDE", "GPT", "n8n", "PLAYWRIGHT", "TYPESCRIPT", "LLM"];
 
-      {/* Cheetah watermark — large, left-side background motif */}
-      <motion.div
-        initial={{ opacity: 0, x: -60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.4, ease: "easeOut", delay: 0.3 }}
-        className="absolute left-[-60px] bottom-[5%] pointer-events-none z-0"
-      >
-        <CheetahMark size={340} opacity={0.07} rounded="lg" />
-      </motion.div>
+const lineIn = {
+  hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
 
-      {/* Cheetah watermark — small, top-right corner accent */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
-        className="absolute right-[2%] top-[12%] pointer-events-none z-0"
-      >
-        <CheetahMark size={120} opacity={0.06} rounded="lg" />
-      </motion.div>
-
-      {/* Kinetic animated nodes */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_#b60059]"
-          animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-primary rounded-full shadow-[0_0_15px_#b60059]"
-          animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-1/3 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#b60059]"
-          animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        />
-        <svg className="absolute inset-0 w-full h-full stroke-primary opacity-10" fill="none">
-          <motion.path
-            d="M200 300 Q 500 100 900 420"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2.5, ease: "easeInOut", delay: 0.3 }}
-          />
-          <motion.path
-            d="M900 420 Q 1100 600 1400 250"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2.5, ease: "easeInOut", delay: 0.8 }}
-          />
-        </svg>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl w-full mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
+const Hero = () => (
+  <section
+    id="home"
+    className="relative min-h-screen flex items-center px-6 md:px-12 pt-32 pb-20 overflow-hidden"
+  >
+    <div className="relative z-10 max-w-[1240px] w-full mx-auto">
+      <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
+        {/* ---------- Copy ---------- */}
+        <div>
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-right order-2 md:order-1"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-3 text-sm tracking-[3px] text-muted-foreground mb-9"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-            >
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full border border-primary/20 mb-6">
-                <span className="font-mono text-xs font-medium tracking-widest uppercase">AI Automation Specialist</span>
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-black mb-4 gradient-text leading-tight font-inter">
-                הופך טכנולוגיה מורכבת לפתרונות חכמים
-              </h1>
-              <h2 className="text-xl md:text-2xl font-semibold mb-6 text-foreground/50 font-inter">
-                פיתוח, אוטומציה והדרכת AI
-              </h2>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
-              className="text-base md:text-lg text-foreground/70 mb-8 leading-relaxed font-mono"
-            >
-              משלבים עוצמה של סוכני AI עם מהירות פיתוח מודרנית כדי לבנות את מה שחשוב באמת.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-              className="flex gap-4 justify-end flex-wrap"
-            >
-              <button
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-primary text-white px-8 py-3.5 rounded-xl font-inter font-semibold text-sm flex items-center gap-2 electric-glow hover:bg-accent transition-all duration-300 active:scale-95"
-              >
-                צור קשר
-                <span>←</span>
-              </button>
-              <button
-                onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-                className="glass-bento text-foreground px-8 py-3.5 rounded-xl font-inter font-semibold text-sm border border-primary/25 hover:bg-primary/5 hover:border-primary/50 transition-all duration-300"
-              >
-                תיק עבודות
-              </button>
-            </motion.div>
+            <span className="w-[34px] h-px bg-primary" />
+            הרצאות · הטמעה · אוטומציות AI
           </motion.div>
 
-          {/* Hero Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="order-1 md:order-2"
-          >
-            <div className="relative">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/10 rounded-3xl blur-2xl"
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          <h1 className="font-display font-extrabold text-foreground leading-[0.98] tracking-[-1px] mb-8 text-[clamp(46px,7vw,104px)]">
+            {headline.map((line, i) => (
+              <motion.span
+                key={line}
+                variants={lineIn}
+                initial="hidden"
+                animate="show"
+                transition={{ duration: 0.8, delay: i * 0.12, ease: [0.2, 0.7, 0.2, 1] }}
+                className="block"
+              >
+                {line}
+              </motion.span>
+            ))}
+
+            <motion.span
+              variants={lineIn}
+              initial="hidden"
+              animate="show"
+              transition={{ duration: 0.8, delay: 0.24, ease: [0.2, 0.7, 0.2, 1] }}
+              className="block relative w-fit"
+            >
+              {/* marker swipe behind the words */}
+              <span
+                aria-hidden
+                className="anim-marker absolute top-[8%] bottom-[2%] -inset-x-2 bg-primary"
+                style={{ transform: "skewX(-4deg) rotate(-1deg)" }}
               />
-              <div className="relative glass-bento rounded-3xl p-3 electric-glow">
-                <img
-                  src={heroImage}
-                  alt="Ram Walastal"
-                  className="rounded-2xl w-full max-w-md mx-auto shadow-xl border border-white/20"
-                />
-              </div>
-            </div>
+              <span className="relative text-primary-foreground px-1">{highlighted}</span>
+            </motion.span>
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="max-w-[520px] font-heebo font-light leading-[1.7] text-muted-foreground mb-10 text-[clamp(17px,1.8vw,20px)]"
+          >
+            לא עוד "כלי AI". אני בונה איתכם שינוי אמיתי — מהרצאה שמדליקה את הצוות, דרך הטמעה
+            מאפס, ועד אוטומציות מותאמות שרצות בשקט ומחזירות לכם את הזמן.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+            className="flex gap-5 items-center flex-wrap"
+          >
+            <button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-9 py-4 rounded-full bg-primary text-primary-foreground font-heebo font-bold text-[17px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgb(var(--brand-rgb)/0.35)] active:scale-95"
+            >
+              קבעו שיחת ייעוץ
+            </button>
+            <button
+              onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-heebo font-semibold text-[17px] text-foreground border-b border-foreground/30 pb-1 transition-colors duration-300 hover:text-primary hover:border-primary"
+            >
+              תיק עבודות ←
+            </button>
           </motion.div>
         </div>
+
+        {/* ---------- Portrait ---------- */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3 }}
+          className="relative order-first lg:order-none max-w-sm mx-auto lg:max-w-none w-full"
+        >
+          <div className="relative aspect-[4/5] overflow-hidden rounded-t-[200px] rounded-b-3xl border border-primary/20">
+            <img
+              src={heroImage}
+              alt="Ram Walastal"
+              className="anim-pan absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-background/70" />
+          </div>
+
+          <div className="absolute bottom-6 -right-2 md:-right-[18px] bg-card border border-primary/25 rounded-2xl px-5 py-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div dir="ltr" className="font-display text-3xl font-extrabold text-primary leading-none">
+              10+
+            </div>
+            <div className="text-xs text-muted-foreground mt-1">שנות הנדסה ואוטומציה</div>
+          </div>
+        </motion.div>
       </div>
-    </section>
-  );
-};
+
+      {/* ---------- Stack strip ---------- */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="flex gap-x-6 gap-y-3 flex-wrap mt-16 text-sm tracking-[1px] text-muted-foreground/70"
+      >
+        {stack.map((tech, i) => (
+          <span key={tech} className="flex items-center gap-6">
+            {tech}
+            {i < stack.length - 1 && <span className="opacity-30">/</span>}
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  </section>
+);
 
 export default Hero;

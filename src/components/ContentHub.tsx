@@ -36,14 +36,14 @@ const ContentHub = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="inline-block font-mono text-xs text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block font-heebo font-light text-xs text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full mb-4">
             ידע וכלים
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-foreground font-inter mb-2">
+          <h2 className="text-3xl md:text-4xl font-black text-foreground font-heebo mb-2">
             מדריכים, הרצאות ותוכן
           </h2>
           <div className="kinetic-line max-w-xs mx-auto" />
-          <p className="font-mono text-sm text-foreground/50 mt-4 max-w-xl mx-auto">
+          <p className="font-heebo font-light text-sm text-foreground/50 mt-4 max-w-xl mx-auto">
             מאות אלפי קריאות. תוכן שנוצר מניסיון אמיתי — לא תיאוריה.
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ const ContentHub = () => {
             >
               <div className="flex items-center justify-between">
                 <BookOpen className="w-3.5 h-3.5 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
-                <span className="font-mono text-xs text-primary bg-primary/10 border border-primary/15 px-2.5 py-1 rounded-full">
+                <span className="font-heebo font-light text-xs text-primary bg-primary/10 border border-primary/15 px-2.5 py-1 rounded-full">
                   {post.category}
                 </span>
               </div>
@@ -71,16 +71,16 @@ const ContentHub = () => {
               <div className="text-3xl text-right">{post.emoji}</div>
 
               <div className="flex flex-col gap-2 flex-1">
-                <h3 className="font-inter font-bold text-sm text-foreground text-right leading-snug group-hover:text-primary transition-colors duration-200">
+                <h3 className="font-heebo font-bold text-sm text-foreground text-right leading-snug group-hover:text-primary transition-colors duration-200">
                   {post.title}
                 </h3>
-                <p className="font-mono text-xs text-foreground/55 text-right leading-relaxed">
+                <p className="font-heebo font-light text-xs text-foreground/55 text-right leading-relaxed">
                   {post.description}
                 </p>
               </div>
 
               <div className="pt-3 border-t border-primary/10 flex items-center justify-end gap-1.5">
-                <span className="font-mono text-xs font-semibold text-primary">
+                <span className="font-heebo font-light text-xs font-semibold text-primary">
                   קרא עוד ↗
                 </span>
               </div>
@@ -98,7 +98,7 @@ const ContentHub = () => {
         >
           <button
             onClick={() => navigate("/resources")}
-            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-xl font-inter font-semibold text-sm hover:bg-accent transition-colors duration-200 electric-glow"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-heebo font-semibold text-sm hover:opacity-90 transition-colors duration-200 electric-glow"
           >
             <BookOpen className="w-4 h-4" />
             לכל המאמרים, המדריכים וההרצאות

@@ -74,7 +74,7 @@ const LogoAvatar = ({ client }: { client: Client }) => {
 
   return (
     <div
-      className={`w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-inter font-black text-3xl shrink-0 shadow-lg`}
+      className={`w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br ${client.color} flex items-center justify-center text-white font-heebo font-black text-3xl shrink-0 shadow-lg`}
     >
       {client.initials}
     </div>
@@ -137,14 +137,14 @@ const ClientLogos = () => {
 
   return (
     <section
-      className="py-20 px-0 relative overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900 scroll-mt-28"
+      className="py-20 px-0 relative overflow-hidden surface-alt scroll-mt-28"
       id="clients"
       aria-roledescription="carousel"
       aria-label="לקוחות שעבדו איתנו"
     >
-      {/* Magenta glow blobs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Brand glow blobs */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/[0.07] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-8 mb-10 relative z-10">
         <motion.div
@@ -154,10 +154,10 @@ const ClientLogos = () => {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <span className="inline-block font-mono text-xs text-primary uppercase tracking-widest bg-primary/15 border border-primary/30 px-4 py-1.5 rounded-full mb-3">
+          <span className="inline-block font-heebo font-light text-xs text-primary uppercase tracking-widest bg-primary/15 border border-primary/30 px-4 py-1.5 rounded-full mb-3">
             לקוחות
           </span>
-          <h3 className="text-2xl md:text-3xl font-black text-white font-inter">
+          <h3 className="text-2xl md:text-3xl font-black text-foreground font-display">
             לקוחות שעבדו איתנו
           </h3>
           <div className="kinetic-line max-w-xs mx-auto mt-2" />
@@ -218,14 +218,14 @@ const ClientLogos = () => {
 
                 <div className="flex flex-col gap-1 min-h-[42px] justify-start">
                   <span
-                    className={`font-inter font-bold text-sm leading-tight ${
+                    className={`font-heebo font-bold text-sm leading-tight ${
                       isActive ? "text-white" : "text-white/70"
                     }`}
                   >
                     {client.name}
                   </span>
                   {client.note && (
-                    <span className="font-mono text-[11px] text-primary leading-tight">
+                    <span className="font-heebo font-light text-[11px] text-primary leading-tight">
                       {client.note}
                     </span>
                   )}
@@ -242,7 +242,7 @@ const ClientLogos = () => {
         <button
           onClick={() => go(-1)}
           aria-label="הלקוח הקודם"
-          className="w-10 h-10 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-colors duration-200"
+          className="w-10 h-10 rounded-full border border-white/20 bg-white/5 text-foreground flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors duration-200"
         >
           <ChevronRight size={18} />
         </button>
@@ -264,7 +264,7 @@ const ClientLogos = () => {
         <button
           onClick={() => go(1)}
           aria-label="הלקוח הבא"
-          className="w-10 h-10 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-colors duration-200"
+          className="w-10 h-10 rounded-full border border-white/20 bg-white/5 text-foreground flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors duration-200"
         >
           <ChevronLeft size={18} />
         </button>

@@ -42,8 +42,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-8 surface-alt relative">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="pt-10 pb-28 px-6 md:px-12 relative">
+      <div
+        className="max-w-[1120px] mx-auto relative overflow-hidden rounded-[36px] border border-primary/20 px-6 md:px-12 py-16 md:py-20"
+        style={{
+          background:
+            "radial-gradient(700px 400px at 50% -20%, rgb(var(--brand-rgb) / 0.14), transparent 65%), hsl(var(--surface-alt))",
+        }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,10 +57,13 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-inter mb-2">בוא נדבר</h2>
-          <div className="kinetic-line max-w-xs mx-auto" />
-          <p className="font-mono text-sm text-foreground/50 mt-4">
-            יש לך פרויקט? רעיון? או סתם רוצה לשוחח? אשמח לשמוע
+          <h2 className="font-display font-extrabold tracking-[-1px] leading-[1.05] mb-5 text-[clamp(34px,5.2vw,66px)]">
+            מוכנים לעצור
+            <br />
+            נשימה?
+          </h2>
+          <p className="font-heebo font-light text-lg text-muted-foreground max-w-[520px] mx-auto leading-[1.7]">
+            נתחיל בשיחה קצרה — נמפה יחד איפה AI ייצר לכם את הערך הגדול ביותר. בלי התחייבות, בלי באזז.
           </p>
         </motion.div>
 
@@ -72,7 +81,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-inter font-bold text-base shadow-lg shadow-[#25D366]/30 hover:bg-[#1ebe5d] transition-colors duration-200"
+            className="flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-heebo font-bold text-base shadow-lg shadow-[#25D366]/30 hover:bg-[#1ebe5d] transition-colors duration-200"
           >
             <MessageCircle className="w-5 h-5" />
             שלח הודעה בוואטסאפ
@@ -81,7 +90,7 @@ const Contact = () => {
             href="tel:0548010190"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-3 glass-bento border-2 border-primary/40 text-primary px-8 py-4 rounded-2xl font-inter font-bold text-base hover:border-primary/70 hover:bg-primary/5 transition-all duration-200"
+            className="flex items-center justify-center gap-3 glass-bento border-2 border-primary/40 text-primary px-8 py-4 rounded-2xl font-heebo font-bold text-base hover:border-primary/70 hover:bg-primary/5 transition-all duration-200"
           >
             <Phone className="w-5 h-5" />
             054-8010190
@@ -103,7 +112,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -3 }}
-              className="p-4 glass-bento rounded-xl border border-white/30 text-foreground/60 hover:text-primary hover:border-primary/40 transition-all duration-200"
+              className="p-4 glass-bento rounded-xl border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200"
               title={social.label}
             >
               <social.icon className="w-5 h-5" />
@@ -126,7 +135,7 @@ const Contact = () => {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              className="bg-white/60 border-border focus:border-primary text-right font-mono text-sm rounded-xl h-12"
+              className="bg-input border-border focus:border-primary text-right font-heebo text-sm rounded-xl h-12"
             />
             <Input
               type="email"
@@ -134,7 +143,7 @@ const Contact = () => {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
-              className="bg-white/60 border-border focus:border-primary text-right font-mono text-sm rounded-xl h-12"
+              className="bg-input border-border focus:border-primary text-right font-heebo text-sm rounded-xl h-12"
             />
             <Textarea
               placeholder="ההודעה שלך..."
@@ -142,13 +151,13 @@ const Contact = () => {
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
               rows={5}
-              className="bg-white/60 border-border focus:border-primary text-right font-mono text-sm rounded-xl resize-none"
+              className="bg-input border-border focus:border-primary text-right font-heebo text-sm rounded-xl resize-none"
             />
             <motion.button
               type="submit"
               whileTap={{ scale: 0.98 }}
               disabled={isSubmitting}
-              className="w-full bg-primary text-white py-4 rounded-xl font-inter font-semibold text-sm hover:bg-accent transition-colors duration-200 electric-glow disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-heebo font-bold text-sm hover:opacity-90 transition-opacity duration-200 electric-glow disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "שולח..." : "שלח הודעה"}
             </motion.button>

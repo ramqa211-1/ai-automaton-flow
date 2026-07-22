@@ -91,11 +91,11 @@ const Solution = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-black text-foreground font-inter mb-2">
+          <h2 className="text-3xl md:text-4xl font-black text-foreground font-heebo mb-2">
             מה אני בונה ואיך
           </h2>
           <div className="kinetic-line max-w-xs mx-auto" />
-          <p className="font-mono text-sm text-foreground/55 mt-4">
+          <p className="font-heebo font-light text-sm text-foreground/55 mt-4">
             השירותים, הסטאק והגישה — בכרטיס אחד
           </p>
         </motion.div>
@@ -116,10 +116,10 @@ const Solution = () => {
                 <item.icon className="w-7 h-7 text-primary" />
               </div>
               <div className="inline-flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20">
-                <span className="font-mono text-xs font-medium tracking-wider">{item.badge}</span>
+                <span className="font-heebo font-light text-xs font-medium tracking-wider">{item.badge}</span>
               </div>
-              <h3 className="text-base font-bold text-foreground font-inter">{item.title}</h3>
-              <p className="font-mono text-xs text-foreground/60 leading-relaxed">{item.description}</p>
+              <h3 className="text-base font-bold text-foreground font-heebo">{item.title}</h3>
+              <p className="font-heebo font-light text-xs text-foreground/60 leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
@@ -133,7 +133,7 @@ const Solution = () => {
           className="glass-bento rounded-2xl p-6 mb-12 gradient-border"
         >
           <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-primary">
+            <span className="font-heebo font-light text-xs uppercase tracking-widest text-primary">
               הסטאק שלי
             </span>
             <div className="flex flex-wrap gap-2 justify-center md:justify-end">
@@ -144,7 +144,7 @@ const Solution = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05, duration: 0.3 }}
-                  className="px-3 py-1.5 bg-white/60 border border-primary/15 rounded-full font-mono text-xs font-medium text-foreground/70 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
+                  className="px-3 py-1.5 bg-[rgb(var(--glass-bg))] border border-primary/15 rounded-full font-heebo font-light text-xs font-medium text-foreground/70 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
                 >
                   {tech}
                 </motion.span>
@@ -173,7 +173,7 @@ const Solution = () => {
               <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20 shrink-0">
                 <skill.Icon className="w-4 h-4" />
               </div>
-              <span className="font-inter text-sm font-semibold text-foreground/80">
+              <span className="font-heebo text-sm font-semibold text-foreground/80">
                 {skill.label}
               </span>
             </motion.div>

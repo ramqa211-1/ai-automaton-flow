@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -46,33 +45,24 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-24 px-8 relative overflow-hidden">
+    <section id="faq" className="py-24 px-6 md:px-12 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className="max-w-3xl mx-auto relative z-10">
-        <motion.div
+      <div className="max-w-[860px] mx-auto relative z-10">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="font-display font-extrabold tracking-[-0.5px] text-center mb-12 text-[clamp(34px,4.6vw,60px)]"
         >
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <HelpCircle className="w-7 h-7 text-emerald-400" />
-            <h2 className="text-3xl md:text-4xl font-black text-foreground font-inter">
-              שאלות נפוצות
-            </h2>
-          </div>
-          <div className="kinetic-line max-w-xs mx-auto" />
-          <p className="font-mono text-sm text-foreground/55 mt-4">
-            התשובות שאני מקבל הכי הרבה בשיחות הגילוי
-          </p>
-        </motion.div>
+          כל מה שרציתם לשאול
+        </motion.h2>
 
-        <div className="space-y-3">
+        <div className="flex flex-col">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
@@ -82,18 +72,18 @@ const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="glass-bento rounded-xl border border-primary/15 overflow-hidden"
+                className="border-b border-border"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-right hover:bg-primary/5 transition-colors"
+                  className="w-full flex items-center justify-between gap-4 py-6 px-1 text-right group"
                   aria-expanded={isOpen}
                 >
-                  <div className="shrink-0 w-7 h-7 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                  </div>
-                  <span className="font-inter font-semibold text-sm md:text-base text-foreground flex-1 text-right">
+                  <span className="font-display font-bold text-right flex-1 transition-colors group-hover:text-primary text-[clamp(19px,2.2vw,24px)]">
                     {faq.q}
+                  </span>
+                  <span className="text-primary text-[26px] font-light shrink-0 leading-none">
+                    {isOpen ? "−" : "+"}
                   </span>
                 </button>
 
@@ -106,7 +96,7 @@ const FAQ = () => {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 pb-5 pt-1 font-mono text-sm text-foreground/65 leading-relaxed text-right border-t border-primary/10">
+                      <p className="pb-6 px-1 font-heebo font-light text-base text-muted-foreground leading-[1.7] text-right max-w-[660px]">
                         {faq.a}
                       </p>
                     </motion.div>

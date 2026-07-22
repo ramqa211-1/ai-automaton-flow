@@ -73,11 +73,11 @@ const Portfolio = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-inter text-right md:text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-heebo text-right md:text-center">
             תיק עבודות
           </h2>
           <div className="kinetic-line max-w-sm mx-auto mt-2" />
-          <p className="font-mono text-sm text-foreground/50 text-center mt-4">
+          <p className="font-heebo font-light text-sm text-foreground/50 text-center mt-4">
             פרויקטים שהובילו לתוצאות מדידות
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ const Portfolio = () => {
         {/* ── Client Projects — highlighted ── */}
         <div className="mb-8">
           <div className="flex items-center justify-end gap-3 mb-5">
-            <h3 className="font-inter font-bold text-lg text-foreground">תוצרים ללקוחות</h3>
+            <h3 className="font-heebo font-bold text-lg text-foreground">תוצרים ללקוחות</h3>
             <Users className="w-5 h-5 text-primary" />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -99,13 +99,13 @@ const Portfolio = () => {
                 className="relative glass-bento rounded-2xl p-6 border-2 border-primary/35 shadow-lg shadow-primary/8 electric-glow-hover group flex flex-col gap-4"
               >
                 <div className="absolute top-4 left-4">
-                  <span className="bg-primary text-white font-mono text-xs px-2.5 py-1 rounded-full">לקוח אמיתי</span>
+                  <span className="bg-primary text-primary-foreground font-heebo font-light text-xs px-2.5 py-1 rounded-full">לקוח אמיתי</span>
                 </div>
 
                 <div className="flex items-start justify-end gap-3">
                   <div className="text-right">
-                    <p className="font-mono text-xs text-primary font-semibold mb-1">{project.client}</p>
-                    <h3 className="text-base font-bold text-foreground font-inter group-hover:text-primary transition-colors duration-200">
+                    <p className="font-heebo font-light text-xs text-primary font-semibold mb-1">{project.client}</p>
+                    <h3 className="text-base font-bold text-foreground font-heebo group-hover:text-primary transition-colors duration-200">
                       {project.title}
                     </h3>
                   </div>
@@ -114,7 +114,7 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                <p className="font-mono text-xs text-foreground/65 leading-relaxed text-right">
+                <p className="font-heebo font-light text-xs text-foreground/65 leading-relaxed text-right">
                   {project.description}
                 </p>
 
@@ -122,7 +122,7 @@ const Portfolio = () => {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 bg-primary/10 text-primary font-mono text-xs rounded-full border border-primary/20"
+                      className="px-2.5 py-1 bg-primary/10 text-primary font-heebo font-light text-xs rounded-full border border-primary/20"
                     >
                       {tech}
                     </span>
@@ -136,7 +136,7 @@ const Portfolio = () => {
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 bg-primary text-white font-mono text-xs px-3 py-1.5 rounded-full hover:bg-accent transition-colors"
+                        className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground font-heebo font-light text-xs px-3 py-1.5 rounded-full hover:opacity-90 transition-colors"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalLink className="w-3 h-3" />
@@ -144,7 +144,7 @@ const Portfolio = () => {
                       </a>
                     ) : null}
                   </div>
-                  <p className="font-mono text-xs font-semibold text-primary text-right flex-1">
+                  <p className="font-heebo font-light text-xs font-semibold text-primary text-right flex-1">
                     {project.metrics}
                   </p>
                 </div>
@@ -155,7 +155,7 @@ const Portfolio = () => {
 
         {/* ── Internal Projects ── */}
         <div className="flex items-center justify-end gap-3 mb-5">
-          <h3 className="font-inter font-bold text-lg text-foreground">פרויקטים נבחרים</h3>
+          <h3 className="font-heebo font-bold text-lg text-foreground">פרויקטים נבחרים</h3>
           <Code className="w-5 h-5 text-primary" />
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -170,12 +170,12 @@ const Portfolio = () => {
             >
               <div className="flex items-start justify-between gap-2">
                 <Code className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <h3 className="text-base font-bold text-foreground font-inter text-right group-hover:text-primary transition-colors duration-200 flex-1">
+                <h3 className="text-base font-bold text-foreground font-heebo text-right group-hover:text-primary transition-colors duration-200 flex-1">
                   {project.title}
                 </h3>
               </div>
 
-              <p className="font-mono text-xs text-foreground/60 leading-relaxed text-right">
+              <p className="font-heebo font-light text-xs text-foreground/60 leading-relaxed text-right">
                 {project.description}
               </p>
 
@@ -183,7 +183,7 @@ const Portfolio = () => {
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 bg-primary/10 text-primary font-mono text-xs rounded-full border border-primary/20"
+                    className="px-2.5 py-1 bg-primary/10 text-primary font-heebo font-light text-xs rounded-full border border-primary/20"
                   >
                     {tech}
                   </span>
@@ -191,7 +191,7 @@ const Portfolio = () => {
               </div>
 
               <div className="pt-3 border-t border-primary/10">
-                <p className="font-mono text-xs font-semibold text-primary text-right">
+                <p className="font-heebo font-light text-xs font-semibold text-primary text-right">
                   {project.metrics}
                 </p>
               </div>

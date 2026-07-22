@@ -35,7 +35,7 @@ const Training = () => {
             className="flex items-center justify-center gap-3 mb-3"
           >
             <GraduationCap className="w-8 h-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-inter">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-heebo">
               הדרכות, הרצאות ומנטורינג
             </h2>
           </motion.div>
@@ -45,7 +45,7 @@ const Training = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="font-mono text-sm text-foreground/55 mt-4"
+            className="font-heebo font-light text-sm text-foreground/55 mt-4"
           >
             אני לא רק בונה, אני גם מלמד. הניסיון שלי כולל:
           </motion.p>
@@ -65,10 +65,10 @@ const Training = () => {
                 <item.icon className="w-7 h-7 text-primary" />
               </div>
               <div className="inline-flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full border border-primary/20">
-                <span className="font-mono text-xs font-medium tracking-wider">{item.badge}</span>
+                <span className="font-heebo font-light text-xs font-medium tracking-wider">{item.badge}</span>
               </div>
-              <h3 className="text-lg font-bold text-foreground font-inter">{item.title}</h3>
-              <p className="font-mono text-xs text-foreground/60 leading-relaxed">{item.description}</p>
+              <h3 className="text-lg font-bold text-foreground font-heebo">{item.title}</h3>
+              <p className="font-heebo font-light text-xs text-foreground/60 leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
