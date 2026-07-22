@@ -3,7 +3,7 @@
 // string literal instead of a leading-slash absolute path.
 //
 //   import { asset } from "@/lib/asset";
-//   <img src={asset("images/brain-ram-logo.jpg")} />
+//   <img src={asset("images/brain-ram-mark.png")} />
 //
 // Note: absolute URLs (http/https) and the "@/" import alias are unaffected.
 export const asset = (p: string): string =>

@@ -24,13 +24,13 @@ const BrainRamLogo = ({ size = "md", showText = true, className = "", onClick }:
       onClick={onClick}
       className={`cursor-pointer flex items-center gap-3 select-none ${className}`}
     >
-      {/* Cheetah mark — square container clips the portrait image to show only the cheetah */}
+      {/* Cheetah mark — brain-ram-mark.png is already a square crop of the brand logo */}
       <div
         style={{ width: mark, height: mark }}
         className="overflow-hidden rounded-xl flex-shrink-0 ring-1 ring-emerald-500/40 shadow-[0_0_16px_rgba(16,185,129,0.25)]"
       >
         <img
-          src={`${import.meta.env.BASE_URL}images/brain-ram-logo.jpg`}
+          src={`${import.meta.env.BASE_URL}images/brain-ram-mark.png`}
           alt="Brain Ram Services"
           className="w-full h-auto block"
         />

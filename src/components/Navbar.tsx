@@ -12,6 +12,7 @@ const navItems = [
   { label: "שירותים", to: "/#services" },
   { label: "הדרכות", to: "/#training" },
   { label: "תיק עבודות", to: "/#portfolio" },
+  { label: "לקוחות מספרים", to: "/#clients" },
 ];
 
 const Navbar = () => {

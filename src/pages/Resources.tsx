@@ -13,12 +13,40 @@ import {
   Zap,
   RefreshCw,
   Database,
+  Video,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const base = import.meta.env.BASE_URL;
 
-const featuredPosts = [
+type Post = {
+  id: number;
+  emoji: string;
+  category: string;
+  categoryColor: string;
+  tags: string[];
+  type: string;
+  typeIcon: LucideIcon;
+  readTime: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  takeaways: string[];
+  image?: string;
+  /** YouTube Shorts id — renders a click-to-play 9:16 player inside the card */
+  videoId?: string;
+  platform: string;
+  platformColor: string;
+  url: string;
+  embedUrl: string | null;
+  /** Overrides the default "קרא הפוסט המלא ב-{platform}" label on the footer link */
+  linkLabel?: string;
+  stat: { value: string; label: string };
+  accentColor: string;
+};
+
+const featuredPosts: Post[] = [
   {
     id: 1,
     emoji: "🤖",
@@ -38,7 +66,7 @@ const featuredPosts = [
       "כדאי להשקיע בבניית Context איכותי לפני שמשדרגים מודל",
       "Cursor + Sonnet + Context טוב עולה פחות ועושה יותר",
     ],
-    image: `${base}images/media-posts/model input.png`,
+    image: `${base}images/media-posts/model-input.png`,
     platform: "LinkedIn",
     platformColor: "#0A66C2",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7450461100241903616/",
@@ -65,7 +93,7 @@ const featuredPosts = [
       "Canva Pro מאחד הכל לפורמט שמוכן ל-LinkedIn/Instagram",
       "כל התהליך אפשרי ב-0 שקלים עם tier החינמי של הכלים",
     ],
-    image: `${base}images/media-posts/video ai.png`,
+    image: `${base}images/media-posts/video-ai.png`,
     platform: "LinkedIn",
     platformColor: "#0A66C2",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7408491181237485568/",
@@ -178,10 +206,66 @@ const featuredPosts = [
     stat: { value: "60%", label: "קיצור זמן טיפול" },
     accentColor: "#00eefc",
   },
+  {
+    id: 7,
+    emoji: "🎥",
+    category: "יצירת סרטונים",
+    categoryColor: "#2AFF8A",
+    tags: ["סרטון תדמית", "AI Video", "לקוח אמיתי"],
+    type: "פרויקט לקוח",
+    typeIcon: Video,
+    readTime: "סרטון · 40 שניות",
+    title: "סרטון תדמית לשמוליק אבוקסיס — חשמלאי תעשייתי",
+    subtitle: "מעסק בלי נוכחות דיגיטלית לסרטון תדמית שמשדר מקצועיות",
+    description:
+      "שמוליק אבוקסיס הוא חשמלאי תעשייתי בתחום המכשור והבקרה — עבודה מקצועית מאוד שקשה להסביר בטקסט. יצרתי לו סרטון תדמית קצר בפורמט אנכי שמראה בדיוק מה הוא עושה, למי, ולמה כדאי לבחור בו. הסרטון יושב לצד האתר העסקי ודף הנחיתה שבניתי לו, ומשמש גם כתוכן לרשתות וגם ככרטיס ביקור בוואטסאפ.",
+    takeaways: [
+      "פורמט אנכי קצר (Shorts/Reels) עובד הכי טוב לבעלי מקצוע — נצפה בנייד תוך שניות",
+      "הסרטון מספר סיפור אחד: מה הבעיה, מה שמוליק עושה, ואיך יוצרים איתו קשר",
+      "כלי AI לעריכה, כתוביות וקריינות מקצרים הפקה של ימים לשעות בודדות",
+      "הסרטון + האתר + דף הנחיתה עובדים כמערכת אחת — הסרטון מביא, האתר ממיר",
+    ],
+    videoId: "ge8A2hpypLw",
+    platform: "YouTube",
+    platformColor: "#FF0000",
+    url: "https://smulikelectricservices.web.app/",
+    embedUrl: null,
+    linkLabel: "לאתר שבניתי לשמוליק",
+    stat: { value: "1", label: "סרטון תדמית מלא" },
+    accentColor: "#2AFF8A",
+  },
+  {
+    id: 8,
+    emoji: "🧠",
+    category: "אוטומציה & תוכן",
+    categoryColor: "#00eefc",
+    tags: ["Human in the Loop", "AI Agents", "טלגרם"],
+    type: "פוסט",
+    typeIcon: BookOpen,
+    readTime: "2 דק׳ קריאה",
+    title: "אוטומציה מלאה בתוכן היא דרך מעולה להרוס את המותג שלכם",
+    subtitle: "למה בניתי את סוכן התוכן שלי עם תנאי ברזל: אפס פרסום בלי אישור אנושי",
+    description:
+      "רואים את זה בכל מקום: סקריפטים שמייצרים פוסטים אוטומטיים, מפרסמים לבד בלינקדאין וממלאים את הפיד בתוכן פלסטיקי שנשמע בדיוק כמו ChatGPT. כשעיצבתי את סוכן ה-AI האישי שלי לניהול תוכן היה לי תנאי אחד — Human in the Loop. התוצאה: עקביות יומית בלי לשלם על זה במחיר של תוכן רדוד.",
+    takeaways: [
+      "בבוקר הסוכן שולח לי לטלגרם את כל מה שחם ב-AI — אפס זמן על Research",
+      "אני בוחר את הידיעה הרלוונטית, והסוכן מייצר שתי אפשרויות ניסוח ושתי אופציות לתמונה",
+      "רק אחרי אישור בלחיצת כפתור הפוסט עולה לאוויר — שליטה של 100% על האיכות והמסר",
+      "אוטומציה נכונה חוסכת את העבודה השחורה, לא את שיקול הדעת",
+    ],
+    platform: "LinkedIn",
+    platformColor: "#0A66C2",
+    url: "https://www.linkedin.com/posts/ram-walas-tal-b1830770_%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%A6%D7%99%D7%94-%D7%9E%D7%9C%D7%90%D7%94-%D7%91%D7%AA%D7%95%D7%9B%D7%9F-%D7%94%D7%99%D7%90-%D7%93%D7%A8%D7%9A-%D7%9E%D7%A2%D7%95%D7%9C%D7%94-%D7%9C%D7%94%D7%A8%D7%95%D7%A1-%D7%90%D7%AA-activity-7484976980338229248-PN-e",
+    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7484976980338229248",
+    stat: { value: "0", label: "פרסומים ללא אישור אנושי" },
+    accentColor: "#00eefc",
+  },
 ];
 
 const allCategories = [
   "הכל",
+  "יצירת סרטונים",
+  "אוטומציה & תוכן",
   "Claude Code & Cursor",
   "Vision AI & כלים",
   "n8n & הרצאות",
@@ -292,8 +376,9 @@ const NV_STYLES = `
   }
 `;
 
-function PostCard({ post, index }: { post: (typeof featuredPosts)[0]; index: number }) {
+function PostCard({ post, index }: { post: Post; index: number }) {
   const [showEmbed, setShowEmbed] = useState(false);
+  const [playVideo, setPlayVideo] = useState(false);
   const isCyan = post.accentColor === "#00eefc";
 
   return (
@@ -362,8 +447,57 @@ function PostCard({ post, index }: { post: (typeof featuredPosts)[0]; index: num
           {post.description}
         </p>
 
+        {/* Inline video player — poster first, iframe only after a click */}
+        {post.videoId && (
+          <div
+            className="relative overflow-hidden rounded-[2px] mx-auto w-full max-w-[260px]"
+            style={{ border: `1px solid ${post.accentColor}35`, aspectRatio: "9/16" }}
+          >
+            {playVideo ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${post.videoId}?autoplay=1&rel=0&playsinline=1`}
+                title={post.title}
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            ) : (
+              <button
+                onClick={() => setPlayVideo(true)}
+                aria-label={`נגן: ${post.title}`}
+                className="absolute inset-0 w-full h-full group/play"
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${post.videoId}/hqdefault.jpg`}
+                  alt={post.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ filter: "brightness(0.72)" }}
+                />
+                <span
+                  className="absolute inset-0 flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span
+                    className="w-16 h-16 rounded-full flex items-center justify-center transition-transform duration-200 group-hover/play:scale-110"
+                    style={{ background: `${post.accentColor}E6` }}
+                  >
+                    <Play className="w-7 h-7 ml-0.5" style={{ color: "#0A0C10" }} fill="#0A0C10" />
+                  </span>
+                </span>
+                <span
+                  className="absolute bottom-3 left-0 right-0 nv-label text-center"
+                  style={{ color: "#f4fff1", textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
+                >
+                  לחצו לצפייה
+                </span>
+              </button>
+            )}
+          </div>
+        )}
+
         {/* Post image */}
-        {"image" in post && post.image && (
+        {post.image && (
           <div
             className="overflow-hidden rounded-[2px] -mx-1"
             style={{ border: `1px solid ${post.accentColor}25` }}
@@ -465,7 +599,7 @@ function PostCard({ post, index }: { post: (typeof featuredPosts)[0]; index: num
             className="nv-label flex items-center gap-1.5"
             style={{ color: post.platformColor, letterSpacing: "0.06em" }}
           >
-            קרא הפוסט המלא ב-{post.platform}
+            {post.linkLabel ?? `קרא הפוסט המלא ב-${post.platform}`}
             <span className="text-base leading-none">↗</span>
           </span>
         </a>
@@ -592,7 +726,7 @@ export default function Resources() {
           {/* Stats */}
           <div className="flex items-center gap-10 mt-2">
             {[
-              { value: "6+", label: "מדריכים" },
+              { value: "8+", label: "מדריכים" },
               { value: "200K+", label: "קריאות" },
               { value: "50+", label: "הרצאות" },
             ].map((s, i) => (

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
 const DELAY_MS = 3500;
-const VIDEO_ID = "9tZDZXcpWIA";
+const VIDEO_ID = "WzONmXwv1A8";
 const EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&rel=0&playsinline=1`;
 
 const VideoModal = () => {
@@ -58,7 +58,7 @@ const VideoModal = () => {
             <div className="relative rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20" style={{ aspectRatio: "9/16" }}>
               <iframe
                 src={EMBED_URL}
-                title="סרטון שיווקי"
+                title="הסוף לעבודה הסיזיפית בעסק"
                 allow="autoplay; encrypted-media; picture-in-picture"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full"

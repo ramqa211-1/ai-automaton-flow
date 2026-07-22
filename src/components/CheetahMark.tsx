@@ -19,8 +19,8 @@ const radiusMap = {
 };
 
 /**
- * Decorative cheetah mark — crops the portrait logo to show only the cheetah element.
- * The portrait image's text portion is naturally clipped by the square container.
+ * Decorative cheetah mark — brain-ram-mark.png is the square crop of the brand
+ * logo (cheetah only, wordmark excluded).
  * Used as a recurring brand motif across sections.
  */
 const CheetahMark = ({
@@ -50,7 +50,7 @@ const CheetahMark = ({
       className={className}
     >
       <img
-        src={`${import.meta.env.BASE_URL}images/brain-ram-logo.jpg`}
+        src={`${import.meta.env.BASE_URL}images/brain-ram-mark.png`}
         alt=""
         aria-hidden="true"
         style={{ width: "100%", height: "auto", display: "block", opacity }}
