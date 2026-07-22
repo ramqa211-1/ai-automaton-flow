@@ -648,13 +648,29 @@ export default function Resources() {
 
   return (
     <div className="nv-root nv-circuit overflow-x-hidden" dir="rtl">
-      {/* Large background speed motif */}
+      {/* Background — hackathon lecture photo. Sized well below the viewport and
+          softly masked at the edges so it reads as a backdrop the content sits
+          on top of, rather than a full-bleed image competing with it. */}
       <div
-        className="fixed inset-0 pointer-events-none z-0 flex items-center justify-center"
-        style={{ opacity: 0.03 }}
-      >
-        <Zap className="text-white" style={{ width: "40vw", height: "40vw" }} />
-      </div>
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `url(${base}images/lecture-hackathon.jpg)`,
+          backgroundSize: "min(1100px, 88%) auto",
+          backgroundPosition: "center 26%",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.62,
+          filter: "blur(0.8px) saturate(0.85)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 64% at 50% 40%, #000 0%, rgba(0,0,0,0.78) 62%, transparent 92%)",
+          maskImage:
+            "radial-gradient(ellipse 70% 64% at 50% 40%, #000 0%, rgba(0,0,0,0.78) 62%, transparent 92%)",
+        }}
+      />
+      {/* Light scrim so body copy keeps its contrast over the photo */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{ background: "rgba(17,19,24,0.14)" }}
+      />
 
       {/* ── HEADER ── */}
       <header
@@ -694,8 +710,18 @@ export default function Resources() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center flex flex-col items-center gap-5 pt-6"
+          className="relative text-center flex flex-col items-center gap-5 pt-6"
         >
+          {/* Local plate so the hero copy keeps its contrast over the photo,
+              without dimming the whole backdrop. */}
+          <div
+            className="absolute -inset-x-10 -inset-y-8 -z-10 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 68% 78% at 50% 50%, rgba(10,12,16,0.88) 0%, rgba(10,12,16,0.6) 55%, transparent 85%)",
+            }}
+          />
+
           <div
             className="nv-label flex items-center gap-2 px-4 py-1.5 rounded-[2px]"
             style={{
@@ -718,7 +744,7 @@ export default function Resources() {
 
           <div className="nv-streak w-48 mx-auto" />
 
-          <p style={{ color: "#849585", fontSize: "15px", fontFamily: "Inter, sans-serif", maxWidth: 500, lineHeight: 1.7 }}>
+          <p style={{ color: "#a9bba8", fontSize: "15px", fontFamily: "Inter, sans-serif", maxWidth: 500, lineHeight: 1.7, textShadow: "0 1px 10px rgba(10,12,16,0.9)" }}>
             כל מה שכתבתי ודיברתי על AI, אוטומציה וכלי פיתוח מתקדמים.
             תוכן מניסיון אמיתי — לא תיאוריה.
           </p>
@@ -726,7 +752,8 @@ export default function Resources() {
           {/* Stats */}
           <div className="flex items-center gap-10 mt-2">
             {[
-              { value: "8+", label: "מדריכים" },
+              // Content count is derived so it can never drift from the feed.
+              { value: String(featuredPosts.length), label: "מאמרים ומדריכים" },
               { value: "200K+", label: "קריאות" },
               { value: "50+", label: "הרצאות" },
             ].map((s, i) => (
@@ -740,7 +767,7 @@ export default function Resources() {
                 <div className="nv-title font-bold" style={{ fontSize: "26px", color: i % 2 === 0 ? "#2AFF8A" : "#00eefc" }}>
                   {s.value}
                 </div>
-                <div className="nv-label mt-0.5" style={{ color: "#849585" }}>{s.label}</div>
+                <div className="nv-label mt-0.5" style={{ color: "#a9bba8", textShadow: "0 1px 10px rgba(10,12,16,0.9)" }}>{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -842,19 +869,25 @@ export default function Resources() {
 
         {/* ── CONTENT FEED ── */}
         <section className="flex flex-col gap-8">
-          {/* Section header + filters */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-4" style={{ borderBottom: "1px solid rgba(59,75,61,0.5)" }}>
-            <h2 className="nv-title flex items-center gap-3" style={{ fontSize: "28px", fontWeight: 600, color: "#f4fff1" }}>
-              <Database className="w-6 h-6" style={{ color: "#2AFF8A" }} />
-              מאמרים אחרונים
-            </h2>
+          {/* Section header + filters — stacked so wrapped pills keep the RTL
+              start edge instead of hanging off the left on the last row */}
+          <div className="flex flex-col gap-4 pb-4" style={{ borderBottom: "1px solid rgba(59,75,61,0.5)" }}>
+            <div className="flex items-baseline gap-3">
+              <h2 className="nv-title flex items-center gap-3" style={{ fontSize: "28px", fontWeight: 600, color: "#f4fff1" }}>
+                <Database className="w-6 h-6 self-center" style={{ color: "#2AFF8A" }} />
+                מאמרים אחרונים
+              </h2>
+              <span className="nv-label" style={{ color: "#849585" }}>
+                {filteredPosts.length} מתוך {featuredPosts.length}
+              </span>
+            </div>
 
             {/* Category pills */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-wrap gap-2 justify-end"
+              className="flex flex-wrap gap-2 justify-start"
             >
               {allCategories.map((cat) => (
                 <button
